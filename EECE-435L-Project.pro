@@ -1,2 +1,1 @@
 QT+=widgets
-test
