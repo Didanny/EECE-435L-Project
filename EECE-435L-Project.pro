@@ -1,1 +1,2 @@
 QT+=widgets
+test
