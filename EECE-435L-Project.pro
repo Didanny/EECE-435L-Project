@@ -2,7 +2,9 @@ QT+=widgets
 
 SOURCES += \
     main.cpp \
-    loginform.cpp
+    loginform.cpp \
+    signupform.cpp
 
 HEADERS += \
-    loginform.h
+    loginform.h \
+    signupform.h

@@ -3,6 +3,7 @@
 #include <QPushButton>
 
 #include <loginform.h>
+#include <signupform.h>
 
 /**
  * \mainpage EECE-435L-Project
@@ -17,6 +18,12 @@ int main(int argc, char** argv)
 
     LoginForm *loginForm = new LoginForm();
     loginForm->show();
+
+    QCalendarWidget *claendar = new QCalendarWidget();
+    claendar->show();
+
+    SignupForm *signupForm = new SignupForm();
+    signupForm->show();
 
     return app.exec();
 }
