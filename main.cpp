@@ -16,11 +16,11 @@ int main(int argc, char** argv)
 {
     QApplication app(argc,argv);
 
-    LoginForm *loginForm = new LoginForm();
-    loginForm->show();
+//    LoginForm *loginForm = new LoginForm();
+//    loginForm->show();
 
-    QCalendarWidget *claendar = new QCalendarWidget();
-    claendar->show();
+//    QCalendarWidget *claendar = new QCalendarWidget();
+//    claendar->show();
 
     SignupForm *signupForm = new SignupForm();
     signupForm->show();

@@ -4,6 +4,7 @@
 #include <QJsonDocument>
 #include <QFile>
 #include <QString>
+#include <QTextStream>
 #include <serializable.h>
 
 class User : public Serializable

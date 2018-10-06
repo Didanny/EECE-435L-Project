@@ -10,7 +10,10 @@ User::User(QString firstName, QString lastName, QString password, QString userna
 
 void User::read(const QJsonObject &json)
 {
-
+    setFirstName(json.find("firstName"));
+    setLastName(json.find("lastName"));
+    setPassword(json.find("password"));
+    setUsername(json.find("username"));
 }
 
 void User::write(QJsonObject &json) const
@@ -18,6 +21,7 @@ void User::write(QJsonObject &json) const
     json.insert("firstName",_firstName);
     json.insert("lastName",_lastName);
     json.insert("password",_password);
+    json.insert("username",_username);
 }
 
 void User::saveUser()
@@ -28,7 +32,10 @@ void User::saveUser()
     QJsonDocument userDoc(userObject);
 
     QFile saveFile(_firstName + ".json");
-    saveFile.write(userDoc.toJson());
+    saveFile.open(QIODevice::ReadWrite);
+    QTextStream stream(&saveFile);
+    stream << userDoc.toJson();
+    saveFile.close();
 }
 
 void User::setFirstName(QString firstName)

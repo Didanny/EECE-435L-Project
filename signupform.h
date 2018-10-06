@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QtWidgets>
+#include <user.h>
 
 class SignupForm : public QWidget
 {
@@ -34,6 +35,7 @@ private:
 signals:
 
 public slots:
+    void saveUser();
 };
 
 #endif // SIGNUPFORM_H

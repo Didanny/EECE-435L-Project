@@ -31,6 +31,8 @@ SignupForm::SignupForm(QWidget *parent) : QWidget(parent)
     setGridLayout();
 
     this->setLayout(loGrid);
+
+    QObject::connect(btnDOB,SIGNAL(clicked()),this,SLOT(saveUser()));
 }
 
 void SignupForm::setGridLayout()
@@ -50,4 +52,10 @@ void SignupForm::setGridLayout()
     loGrid->addWidget(lblConfirmPassword,5,1);
     loGrid->addWidget(lePassword,6,0);
     loGrid->addWidget(leConfirmPassword,6,1);
+}
+
+void SignupForm::saveUser()
+{
+    User user(leFirstName->text(),leLastName->text(),lePassword->text(),leUsername->text());
+    user.saveUser();
 }
