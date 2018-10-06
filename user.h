@@ -3,24 +3,26 @@
 
 #include <QJsonDocument>
 #include <QFile>
-#include <string>
+#include <QString>
 #include <serializable.h>
 
 class User : public Serializable
 {
 public:
-    User(std::string firstName, std::string lastName, std::string password);
+    User(QString firstName, QString lastName, QString password, QString username);
     void read(const QJsonObject &json);
     void write(QJsonObject &json) const;
     void saveUser();
 
 private:
-    std::string _firstName;
-    std::string _lastName;
-    std::string _password;
-    void setFirstName(std::string firstName);
-    void setLastName(std::string lastName);
-    void setPassword(std::string password);
+    QString _firstName;
+    QString _lastName;
+    QString _password;
+    QString _username;
+    void setFirstName(QString firstName);
+    void setLastName(QString lastName);
+    void setPassword(QString password);
+    void setUsername(QString username);
 };
 
 #endif // USER_H

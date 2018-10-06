@@ -1,6 +1,6 @@
 #include "user.h"
 
-User::User(std::string firstName, std::string lastName, std::string password, std::string username)
+User::User(QString firstName, QString lastName, QString password, QString username)
 {
     setFirstName(firstName);
     setLastName(lastName);
@@ -31,22 +31,22 @@ void User::saveUser()
     saveFile.write(userDoc.toJson());
 }
 
-void User::setFirstName(std::string firstName)
+void User::setFirstName(QString firstName)
 {
     _firstName = firstName;
 }
 
-void User::setLastName(std::string lastName)
+void User::setLastName(QString lastName)
 {
     _lastName = lastName;
 }
 
-void User::setPassword(std::string password)
+void User::setPassword(QString password)
 {
     _password = password;
 }
 
-void User::setUsername(std::string username)
+void User::setUsername(QString username)
 {
     _username = username;
 }
