@@ -4,8 +4,8 @@ ProfilePage::ProfilePage(QWidget *parent) : QWidget(parent)
 {
     User user;
     userService = UserService::getInstance();
-//    userService->getCurrentUser(user);
-    userService->getUser("b2",user);
+    userService->getCurrentUser(user);
+//    userService->getUser("b2",user);
 
     lblDOB = new QLabel(user.getDOB());
     lblFirstname = new QLabel(user.getFirstName());

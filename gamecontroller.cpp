@@ -9,6 +9,8 @@ GameController::GameController(QObject *parent) : QObject(parent)
 
     QObject::connect(_loginForm->btnSignup,SIGNAL(clicked()),this,SLOT(openSignupForm()));
     QObject::connect(_signupForm->btnCancel,SIGNAL(clicked()),this,SLOT(openLoginForm()));
+    QObject::connect(_loginForm,SIGNAL(successfullLogin()),this,SLOT(openMainWidget()));
+    QObject::connect(_signupForm,SIGNAL(signupComplete()),this,SLOT(openMainWidget()));
 }
 
 #include <QDebug>
@@ -39,4 +41,12 @@ void GameController::openLoginForm()
 {
     _signupForm->hide();
     _loginForm->show();
+}
+
+void GameController::openMainWidget()
+{
+    _main = new MainWidget();
+    _signupForm->close();
+    _loginForm->close();
+    _main->show();
 }

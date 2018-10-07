@@ -38,6 +38,8 @@ SignupForm::SignupForm(QWidget *parent) : QWidget(parent)
 
     picture = new QImage();
 
+    userService = UserService::getInstance();
+
     setGridLayout();
 
     this->setLayout(loGrid);
@@ -102,6 +104,7 @@ void SignupForm::checkForm()
     }
 
     saveUser();
+    userService->setCurrentUser(leUsername->text());
     signupComplete();
 }
 

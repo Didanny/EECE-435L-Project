@@ -6,6 +6,7 @@
 #include <QFileInfo>
 #include <QFileDialog>
 #include <user.h>
+#include <userservice.h>
 
 class SignupForm : public QWidget
 {
@@ -37,6 +38,7 @@ public:
     QLabel *lblPicture;
     QPushButton *btnPicture;
     QImage *picture;
+    UserService *userService;
     void setGridLayout();
 
 private:

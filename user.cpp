@@ -21,6 +21,8 @@ void User::read(const QJsonObject &json)
     setLastName(json.find("lastName").value().toString());
     setPassword(json.find("password").value().toString());
     setUsername(json.find("username").value().toString());
+    setDOB(json.find("dob").value().toString());
+    setGender(json.find("gender").value().toString());
 }
 
 void User::write(QJsonObject &json) const
