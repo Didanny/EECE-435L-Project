@@ -17,6 +17,7 @@ public:
     QLabel *lblDOB;
     QGridLayout *loGrid;
     UserService *userService;
+    QMessageBox *message;
     void setGridLayout();
 
 signals:

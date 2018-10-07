@@ -18,6 +18,13 @@ ProfilePage::ProfilePage(QWidget *parent) : QWidget(parent)
     picture = picture.scaledToWidth(300);
     lblPicture->setPixmap(QPixmap::fromImage(picture));
 
+    message = new QMessageBox();
+    if (user.isDOB())
+    {
+        message->setText("Happy Birthday");
+        message->show();
+    }
+
     setGridLayout();
 
     this->setLayout(loGrid);

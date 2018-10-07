@@ -74,6 +74,13 @@ QString User::getUsername()
     return _username;
 }
 
+bool User::isDOB()
+{
+    QDate today;
+    today = today.currentDate();
+    return _dob.mid(4,5) == today.toString().mid(4,5);
+}
+
 void User::setFirstName(QString firstName)
 {
     _firstName = firstName;

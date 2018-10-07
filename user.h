@@ -6,6 +6,7 @@
 #include <QString>
 #include <QTextStream>
 #include <serializable.h>
+#include <QDate>
 
 class User : public Serializable
 {
@@ -20,6 +21,7 @@ public:
     QString getLastName();
     QString getDOB();
     QString getUsername();
+    bool isDOB();
 
 //private:
     QString _firstName;
