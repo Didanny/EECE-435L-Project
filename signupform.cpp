@@ -28,6 +28,7 @@ SignupForm::SignupForm(QWidget *parent) : QWidget(parent)
 
     btnDOB = new QPushButton("Select DOB");
     btnSignup = new QPushButton("Sign Up");
+    btnCancel = new QPushButton("Cancel");
 
     wCalendar = new QCalendarWidget();
 
@@ -56,10 +57,20 @@ void SignupForm::setGridLayout()
     loGrid->addWidget(lePassword,11,0);
     loGrid->addWidget(leConfirmPassword,11,1);
     loGrid->addWidget(btnSignup,12,0,1,2);
+    loGrid->addWidget(btnCancel,13,0,1,2);
 }
 
 void SignupForm::saveUser()
 {
-    User user(leFirstName->text(),leLastName->text(),lePassword->text(),leUsername->text());
+    QString gender;
+    if (rbFemale->isChecked())
+    {
+        gender = "female";
+    }
+    else
+    {
+        gender = "male";
+    }
+    User user(leFirstName->text(),leLastName->text(),lePassword->text(),leUsername->text(),wCalendar->selectedDate().toString(),gender);
     user.saveUser();
 }

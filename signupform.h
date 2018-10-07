@@ -10,8 +10,6 @@ class SignupForm : public QWidget
     Q_OBJECT
 public:
     explicit SignupForm(QWidget *parent = nullptr);
-
-private:
     QLabel *lblFirstName;
     QLabel *lblLastName;
     QLineEdit *leFirstName;
@@ -32,6 +30,7 @@ private:
     QLabel *lblGender;
     QCalendarWidget *wCalendar;
     QPushButton *btnSignup;
+    QPushButton *btnCancel;
     void setGridLayout();
 
 signals:

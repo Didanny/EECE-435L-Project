@@ -9,8 +9,6 @@ class LoginForm : public QWidget
     Q_OBJECT
 public:
     explicit LoginForm(QWidget *parent = nullptr);
-
-private:
     QLabel *lblUsername;
     QLineEdit *leUsername;
     QLabel *lblPassword;

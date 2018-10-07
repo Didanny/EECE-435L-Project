@@ -24,6 +24,8 @@ void User::write(QJsonObject &json) const
     json.insert("lastName",_lastName);
     json.insert("password",_password);
     json.insert("username",_username);
+    json.insert("dob",_dob);
+    json.insert("gender",_gender);
 }
 
 void User::saveUser()

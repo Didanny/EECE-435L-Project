@@ -2,9 +2,7 @@
 #include <QWidget>
 #include <QPushButton>
 
-#include <loginform.h>
-#include <signupform.h>
-
+#include <gamecontroller.h>
 /**
  * \mainpage EECE-435L-Project
  * \author Danny Abraham
@@ -16,14 +14,7 @@ int main(int argc, char** argv)
 {
     QApplication app(argc,argv);
 
-//    LoginForm *loginForm = new LoginForm();
-//    loginForm->show();
-
-//    QCalendarWidget *claendar = new QCalendarWidget();
-//    claendar->show();
-
-    SignupForm *signupForm = new SignupForm();
-    signupForm->show();
+    GameController *gameController = new GameController();
 
     return app.exec();
 }
