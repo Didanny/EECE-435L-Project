@@ -53,7 +53,7 @@ void LoginForm::login()
 
     if (user.authenticate(lePassword->text()))
     {
-        UserService::setCurrentUser(leUsername->text());
+        userService->setCurrentUser(leUsername->text());
         successfullLogin();
     }
     else

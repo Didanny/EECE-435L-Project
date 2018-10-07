@@ -9,7 +9,8 @@ SOURCES += \
     main_page.cpp \
     userservice.cpp \
     mainwidget.cpp \
-    profilepage.cpp
+    profilepage.cpp \
+    gamespage.cpp
 
 HEADERS += \
     loginform.h \
@@ -20,4 +21,5 @@ HEADERS += \
     main_page.h \
     userservice.h \
     mainwidget.h \
-    profilepage.h
+    profilepage.h \
+    gamespage.h

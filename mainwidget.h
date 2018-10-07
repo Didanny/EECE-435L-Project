@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include <QtWidgets>
+#include <profilepage.h>
+#include <gamespage.h>
 
 class MainWidget : public QWidget
 {
@@ -10,6 +12,8 @@ class MainWidget : public QWidget
 public:
     explicit MainWidget(QWidget *parent = nullptr);
     QTabWidget *twTab;
+    ProfilePage *profile;
+    GamesPage *games;
 
 signals:
 

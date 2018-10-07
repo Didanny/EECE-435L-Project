@@ -1,6 +1,7 @@
 #include "userservice.h"
 
 UserService* UserService::_instance = 0;
+QString UserService::_currentUser = "";
 
 UserService::UserService()
 {

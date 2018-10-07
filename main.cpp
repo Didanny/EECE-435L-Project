@@ -4,6 +4,9 @@
 
 #include <gamecontroller.h>
 #include <main_page.h>
+#include <mainwidget.h>
+#include <profilepage.h>
+#include <gamespage.h>
 /**
  * \mainpage EECE-435L-Project
  * \author Danny Abraham
@@ -18,8 +21,17 @@ int main(int argc, char** argv)
 //    GameController *gameController = new GameController();
 //    gameController->loadUser("b2");
 
-    main_page *main = new main_page();
-    main->show();
+//    main_page *main = new main_page();
+//    main->show();
+
+    MainWidget *m = new MainWidget();
+    m->show();
+
+//    ProfilePage *profile = new ProfilePage();
+//    profile->show();
+
+    GamesPage *g = new GamesPage();
+    g->show();
 
     return app.exec();
 }
