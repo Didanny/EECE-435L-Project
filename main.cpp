@@ -3,10 +3,6 @@
 #include <QPushButton>
 
 #include <gamecontroller.h>
-#include <main_page.h>
-#include <mainwidget.h>
-#include <profilepage.h>
-#include <gamespage.h>
 /**
  * \mainpage EECE-435L-Project
  * \author Danny Abraham
