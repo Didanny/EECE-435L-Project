@@ -47,6 +47,31 @@ void User::saveUser()
     saveFile.close();
 }
 
+bool User::authenticate(QString password)
+{
+    return password == _password;
+}
+
+QString User::getFirstName()
+{
+    return _firstName;
+}
+
+QString User::getLastName()
+{
+    return _lastName;
+}
+
+QString User::getDOB()
+{
+    return _dob;
+}
+
+QString User::getUsername()
+{
+    return _username;
+}
+
 void User::setFirstName(QString firstName)
 {
     _firstName = firstName;

@@ -15,6 +15,11 @@ public:
     void read(const QJsonObject &json);
     void write(QJsonObject &json) const;
     void saveUser();
+    bool authenticate(QString password);
+    QString getFirstName();
+    QString getLastName();
+    QString getDOB();
+    QString getUsername();
 
 //private:
     QString _firstName;

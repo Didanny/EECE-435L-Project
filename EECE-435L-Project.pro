@@ -7,7 +7,9 @@ SOURCES += \
     user.cpp \
     gamecontroller.cpp \
     main_page.cpp \
-    userservice.cpp
+    userservice.cpp \
+    mainwidget.cpp \
+    profilepage.cpp
 
 HEADERS += \
     loginform.h \
@@ -16,4 +18,6 @@ HEADERS += \
     serializable.h \
     gamecontroller.h \
     main_page.h \
-    userservice.h
+    userservice.h \
+    mainwidget.h \
+    profilepage.h

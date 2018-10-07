@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QtWidgets>
+#include <userservice.h>
 
 class LoginForm : public QWidget
 {
@@ -18,11 +19,17 @@ public:
     QPushButton *btnSignup;
     QPushButton *btnPlayAsGuest;
     QGridLayout *loGrid;
+    QMessageBox *msgError;
     void setGridLayout();
 
+private:
+    UserService *userService;
+
 signals:
+    void successfullLogin();
 
 public slots:
+    void login();
 };
 
 #endif // LOGINFORM_H

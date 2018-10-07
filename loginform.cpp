@@ -14,7 +14,13 @@ LoginForm::LoginForm(QWidget *parent) : QWidget(parent)
     btnPlayAsGuest = new QPushButton("Play As Guest");
     btnSignup = new QPushButton("Sign Up");
 
+    msgError = new QMessageBox();
+
+    userService = UserService::getInstance();
+
     setGridLayout();
+
+    QObject::connect(btnLogin,SIGNAL(clicked(bool)),this,SLOT(login()));
 }
 
 void LoginForm::setGridLayout()
@@ -31,4 +37,28 @@ void LoginForm::setGridLayout()
     loGrid->addWidget(btnPlayAsGuest,4,1);
 
     this->setLayout(loGrid);
+}
+
+void LoginForm::login()
+{
+    msgError->hide();
+
+    User user;
+    if (userService->getUser(leUsername->text(),user) == false)
+    {
+        msgError->setText("Incorrect username");
+        msgError->show();
+        return;
+    }
+
+    if (user.authenticate(lePassword->text()))
+    {
+        UserService::setCurrentUser(leUsername->text());
+        successfullLogin();
+    }
+    else
+    {
+        msgError->setText("Incorrect password");
+        msgError->show();
+    }
 }

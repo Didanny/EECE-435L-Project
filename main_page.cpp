@@ -61,8 +61,11 @@
 
 main_page::main_page(QWidget *parent) : QWidget(parent)
 {
-    tabWidget = new QTabWidget();
+    tabWidget = new QTabWidget(this);
     tabWidget->addTab(new QCalendarWidget(), "Profile");
     tabWidget->addTab(new QWidget(), "Games");
     tabWidget->show();
+    int x = 700;
+    tabWidget->setFixedSize(x,x);
+//    this->setFixedSize(x,x);
 }

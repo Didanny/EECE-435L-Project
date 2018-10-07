@@ -25,6 +25,7 @@ bool UserService::getUser(QString username, User &user)
         return false;
     }
     file.setFileName(path);
+    file.open(QIODevice::ReadOnly);
 
     QJsonDocument userDoc = QJsonDocument::fromJson(file.readAll());
 
@@ -34,4 +35,14 @@ bool UserService::getUser(QString username, User &user)
 
     user.read(userObject);
     return true;
+}
+
+void UserService::setCurrentUser(QString username)
+{
+    _currentUser = username;
+}
+
+void UserService::getCurrentUser(User &user)
+{
+    getUser(_currentUser,user);
 }
