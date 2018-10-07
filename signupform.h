@@ -30,6 +30,8 @@ private:
     QRadioButton *rbMale;
     QRadioButton *rbFemale;
     QLabel *lblGender;
+    QCalendarWidget *wCalendar;
+    QPushButton *btnSignup;
     void setGridLayout();
 
 signals:

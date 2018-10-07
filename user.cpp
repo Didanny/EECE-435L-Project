@@ -1,19 +1,21 @@
 #include "user.h"
 
-User::User(QString firstName, QString lastName, QString password, QString username)
+User::User(QString firstName, QString lastName, QString password, QString username, QString dob, QString gender)
 {
     setFirstName(firstName);
     setLastName(lastName);
     setPassword(password);
     setUsername(username);
+    setDOB(dob);
+    setGender(gender);
 }
 
 void User::read(const QJsonObject &json)
 {
-    setFirstName(json.find("firstName"));
-    setLastName(json.find("lastName"));
-    setPassword(json.find("password"));
-    setUsername(json.find("username"));
+    setFirstName(json.find("firstName").value().toString());
+    setLastName(json.find("lastName").value().toString());
+    setPassword(json.find("password").value().toString());
+    setUsername(json.find("username").value().toString());
 }
 
 void User::write(QJsonObject &json) const
@@ -31,8 +33,8 @@ void User::saveUser()
 
     QJsonDocument userDoc(userObject);
 
-    QFile saveFile(_firstName + ".json");
-    saveFile.open(QIODevice::ReadWrite);
+    QFile saveFile("./users/" + _username + ".json");
+    saveFile.open(QIODevice::WriteOnly);
     QTextStream stream(&saveFile);
     stream << userDoc.toJson();
     saveFile.close();
@@ -56,4 +58,14 @@ void User::setPassword(QString password)
 void User::setUsername(QString username)
 {
     _username = username;
+}
+
+void User::setDOB(QString dob)
+{
+    _dob = dob;
+}
+
+void User::setGender(QString gender)
+{
+    _gender = gender;
 }

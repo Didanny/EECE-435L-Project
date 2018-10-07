@@ -27,12 +27,15 @@ SignupForm::SignupForm(QWidget *parent) : QWidget(parent)
     grpGender->setLayout(loGender);
 
     btnDOB = new QPushButton("Select DOB");
+    btnSignup = new QPushButton("Sign Up");
+
+    wCalendar = new QCalendarWidget();
 
     setGridLayout();
 
     this->setLayout(loGrid);
 
-    QObject::connect(btnDOB,SIGNAL(clicked()),this,SLOT(saveUser()));
+    QObject::connect(btnSignup,SIGNAL(clicked()),this,SLOT(saveUser()));
 }
 
 void SignupForm::setGridLayout()
@@ -42,16 +45,17 @@ void SignupForm::setGridLayout()
     loGrid->addWidget(lblLastName,0,1);
     loGrid->addWidget(leFirstName,1,0);
     loGrid->addWidget(leLastName,1,1);
-    loGrid->addWidget(lblDOB,2,0);
-    loGrid->addWidget(btnDOB,2,1);
-    loGrid->addWidget(lblGender,3,0);
-    loGrid->addWidget(grpGender,3,1);
-    loGrid->addWidget(lblUsername,4,0);
-    loGrid->addWidget(leUsername,4,1);
-    loGrid->addWidget(lblPassword,5,0);
-    loGrid->addWidget(lblConfirmPassword,5,1);
-    loGrid->addWidget(lePassword,6,0);
-    loGrid->addWidget(leConfirmPassword,6,1);
+    loGrid->addWidget(lblDOB,2,0,1,2);
+    loGrid->addWidget(wCalendar,3,0,2,5);
+    loGrid->addWidget(lblGender,8,0);
+    loGrid->addWidget(grpGender,8,1);
+    loGrid->addWidget(lblUsername,9,0);
+    loGrid->addWidget(leUsername,9,1);
+    loGrid->addWidget(lblPassword,10,0);
+    loGrid->addWidget(lblConfirmPassword,10,1);
+    loGrid->addWidget(lePassword,11,0);
+    loGrid->addWidget(leConfirmPassword,11,1);
+    loGrid->addWidget(btnSignup,12,0,1,2);
 }
 
 void SignupForm::saveUser()
