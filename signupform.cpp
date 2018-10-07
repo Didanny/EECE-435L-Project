@@ -9,6 +9,7 @@ SignupForm::SignupForm(QWidget *parent) : QWidget(parent)
     lblPassword = new QLabel("Password:");
     lblUsername = new QLabel("Username:");
     lblGender = new QLabel("Gender:");
+    lblPicture = new QLabel("Profile");
 
     leConfirmPassword = new QLineEdit();
     leConfirmPassword->setEchoMode(QLineEdit::Password);
@@ -29,16 +30,20 @@ SignupForm::SignupForm(QWidget *parent) : QWidget(parent)
     btnDOB = new QPushButton("Select DOB");
     btnSignup = new QPushButton("Sign Up");
     btnCancel = new QPushButton("Cancel");
+    btnPicture = new QPushButton("Select a Profile Picture");
 
     wCalendar = new QCalendarWidget();
 
     msgError = new QMessageBox();
+
+    picture = new QImage();
 
     setGridLayout();
 
     this->setLayout(loGrid);
 
     QObject::connect(btnSignup,SIGNAL(clicked()),this,SLOT(checkForm()));
+    QObject::connect(btnPicture,SIGNAL(clicked(bool)),this,SLOT(selectPicture()));
 }
 
 void SignupForm::setGridLayout()
@@ -58,8 +63,10 @@ void SignupForm::setGridLayout()
     loGrid->addWidget(lblConfirmPassword,10,1);
     loGrid->addWidget(lePassword,11,0);
     loGrid->addWidget(leConfirmPassword,11,1);
-    loGrid->addWidget(btnSignup,12,0,1,2);
-    loGrid->addWidget(btnCancel,13,0,1,2);
+    loGrid->addWidget(lblPicture,12,0,6,2);
+    loGrid->addWidget(btnPicture,18,0,1,2);
+    loGrid->addWidget(btnSignup,19,0,1,2);
+    loGrid->addWidget(btnCancel,20,0,1,2);
 }
 
 void SignupForm::checkForm()
@@ -95,6 +102,22 @@ void SignupForm::checkForm()
     }
 
     saveUser();
+    signupComplete();
+}
+
+void SignupForm::selectPicture()
+{
+    QString filename = QFileDialog::getOpenFileName(this,tr("Select Profile Picture"),"",tr("Images(*.png *.jpeg *.jpg *.bmp *.gif)"));
+
+    if (filename.length() > 0)
+    {
+        bool success = picture->load(filename);
+        *picture = picture->scaledToWidth(lblPicture->width());
+        if (success)
+        {
+            lblPicture->setPixmap(QPixmap::fromImage(*picture));
+        }
+    }
 }
 
 bool SignupForm::checkPassword()
@@ -150,4 +173,5 @@ void SignupForm::saveUser()
     }
     User user(leFirstName->text(),leLastName->text(),lePassword->text(),leUsername->text(),wCalendar->selectedDate().toString(),gender);
     user.saveUser();
+    picture->save("./" + leUsername->text() + ".png");
 }

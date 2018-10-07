@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QtWidgets>
 #include <QFileInfo>
+#include <QFileDialog>
 #include <user.h>
 
 class SignupForm : public QWidget
@@ -33,6 +34,9 @@ public:
     QPushButton *btnSignup;
     QPushButton *btnCancel;
     QMessageBox *msgError;
+    QLabel *lblPicture;
+    QPushButton *btnPicture;
+    QImage *picture;
     void setGridLayout();
 
 private:
@@ -42,10 +46,12 @@ private:
     bool checkCompletion();
 
 signals:
+    void signupComplete();
 
 public slots:
     void saveUser();
     void checkForm();
+    void selectPicture();
 };
 
 #endif // SIGNUPFORM_H

@@ -35,7 +35,7 @@ void User::saveUser()
 
     QJsonDocument userDoc(userObject);
 
-    QFile saveFile("./users/" + _username + ".json");
+    QFile saveFile("./" + _username + ".json");
     saveFile.open(QIODevice::WriteOnly);
     QTextStream stream(&saveFile);
     stream << userDoc.toJson();
