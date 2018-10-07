@@ -5,11 +5,15 @@ SOURCES += \
     loginform.cpp \
     signupform.cpp \
     user.cpp \
-    gamecontroller.cpp
+    gamecontroller.cpp \
+    main_page.cpp \
+    userservice.cpp
 
 HEADERS += \
     loginform.h \
     signupform.h \
     user.h \
     serializable.h \
-    gamecontroller.h
+    gamecontroller.h \
+    main_page.h \
+    userservice.h

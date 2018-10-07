@@ -142,7 +142,7 @@ bool SignupForm::checkPassword()
 
 bool SignupForm::checkUsername()
 {
-    QString path = "./users/" + leUsername->text() + ".json";
+    QString path = "./" + leUsername->text() + ".json";
     return !(QFileInfo::exists(path) && QFileInfo(path).isFile());
 }
 

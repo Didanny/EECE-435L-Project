@@ -10,12 +10,13 @@
 class User : public Serializable
 {
 public:
+    User();
     User(QString firstName, QString lastName, QString password, QString username, QString dob, QString gender);
     void read(const QJsonObject &json);
     void write(QJsonObject &json) const;
     void saveUser();
 
-private:
+//private:
     QString _firstName;
     QString _lastName;
     QString _password;

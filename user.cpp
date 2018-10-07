@@ -1,5 +1,10 @@
 #include "user.h"
 
+User::User()
+{
+
+}
+
 User::User(QString firstName, QString lastName, QString password, QString username, QString dob, QString gender)
 {
     setFirstName(firstName);

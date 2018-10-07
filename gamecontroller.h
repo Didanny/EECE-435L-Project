@@ -10,8 +10,10 @@ class GameController : public QObject
     Q_OBJECT
 public:
     explicit GameController(QObject *parent = nullptr);
+    void loadUser(QString username);
 
 private:
+    User *_user;
     LoginForm *_loginForm;
     SignupForm *_signupForm;
 
