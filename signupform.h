@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QtWidgets>
+#include <QFileInfo>
 #include <user.h>
 
 class SignupForm : public QWidget
@@ -31,12 +32,20 @@ public:
     QCalendarWidget *wCalendar;
     QPushButton *btnSignup;
     QPushButton *btnCancel;
+    QMessageBox *msgError;
     void setGridLayout();
+
+private:
+    bool checkPassword();
+    bool checkUsername();
+    bool checkGender();
+    bool checkCompletion();
 
 signals:
 
 public slots:
     void saveUser();
+    void checkForm();
 };
 
 #endif // SIGNUPFORM_H

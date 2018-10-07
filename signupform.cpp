@@ -32,11 +32,13 @@ SignupForm::SignupForm(QWidget *parent) : QWidget(parent)
 
     wCalendar = new QCalendarWidget();
 
+    msgError = new QMessageBox();
+
     setGridLayout();
 
     this->setLayout(loGrid);
 
-    QObject::connect(btnSignup,SIGNAL(clicked()),this,SLOT(saveUser()));
+    QObject::connect(btnSignup,SIGNAL(clicked()),this,SLOT(checkForm()));
 }
 
 void SignupForm::setGridLayout()
@@ -58,6 +60,81 @@ void SignupForm::setGridLayout()
     loGrid->addWidget(leConfirmPassword,11,1);
     loGrid->addWidget(btnSignup,12,0,1,2);
     loGrid->addWidget(btnCancel,13,0,1,2);
+}
+
+void SignupForm::checkForm()
+{
+    msgError->hide();
+
+    if (!checkCompletion())
+    {
+        msgError->setText("Please complete the form");
+        msgError->show();
+        return;
+    }
+
+    if (!checkGender())
+    {
+        msgError->setText("Please select a gender!");
+        msgError->show();
+        return;
+    }
+
+    if (!checkPassword())
+    {
+        msgError->setText("Please make sure your password is atleast 8 characters long, contains numbers, and is lower and upper case!");
+        msgError->show();
+        return;
+    }
+
+    if(!checkUsername())
+    {
+        msgError->setText("Please change your username, it is already taken!");
+        msgError->show();
+        return;
+    }
+
+    saveUser();
+}
+
+bool SignupForm::checkPassword()
+{
+    bool isNumeric;
+    bool isLongerThan7;
+    bool isMixedCase;
+    bool isMatching;
+
+    QString password = lePassword->text();
+
+    isMatching = password == leConfirmPassword->text();
+    isLongerThan7 = password.length() > 7;
+    isMixedCase = password != password.toLower();
+
+    QRegularExpression regex("[0-9]+");
+    QRegularExpressionMatch match = regex.match(password);
+    isNumeric = match.hasMatch();
+
+    return isNumeric && isLongerThan7 && isMixedCase && isMatching;
+}
+
+bool SignupForm::checkUsername()
+{
+    QString path = "./users/" + leUsername->text() + ".json";
+    return !(QFileInfo::exists(path) && QFileInfo(path).isFile());
+}
+
+bool SignupForm::checkGender()
+{
+    return rbFemale->isChecked() || rbMale->isChecked();
+}
+
+bool SignupForm::checkCompletion()
+{
+    return leFirstName->text().length() > 0 &&
+            leLastName->text().length() > 0 &&
+            lePassword->text().length() > 0 &&
+            leConfirmPassword->text().length() > 0 &&
+            leUsername->text().length() > 0;
 }
 
 void SignupForm::saveUser()
