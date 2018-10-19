@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>images/map.jpg</file>
+        <file>images/current.png</file>
+        <file>images/done.png</file>
+        <file>images/locked.png</file>
     </qresource>
 </RCC>

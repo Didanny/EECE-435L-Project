@@ -10,7 +10,8 @@ SOURCES += \
     mainwidget.cpp \
     profilepage.cpp \
     gamespage.cpp \
-    game1scene.cpp
+    game1scene.cpp \
+    stagemarker.cpp
 
 HEADERS += \
     loginform.h \
@@ -23,7 +24,8 @@ HEADERS += \
     profilepage.h \
     gamespage.h \
     game1scene.h \
-    stagestate.h
+    stagestate.h \
+    stagemarker.h
 
 RESOURCES += \
     images.qrc
