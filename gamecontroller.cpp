@@ -13,7 +13,6 @@ GameController::GameController(QObject *parent) : QObject(parent)
     QObject::connect(_signupForm,SIGNAL(signupComplete()),this,SLOT(openMainWidget()));
 }
 
-#include <QDebug>
 void GameController::loadUser(QString username)
 {
     QFile file;
@@ -28,7 +27,6 @@ void GameController::loadUser(QString username)
 
     _user = new User();
     _user->read(userObject);
-    qDebug() << _user->_username;
 }
 
 void GameController::openSignupForm()
