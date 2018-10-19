@@ -9,7 +9,8 @@ SOURCES += \
     userservice.cpp \
     mainwidget.cpp \
     profilepage.cpp \
-    gamespage.cpp
+    gamespage.cpp \
+    game1scene.cpp
 
 HEADERS += \
     loginform.h \
@@ -20,4 +21,9 @@ HEADERS += \
     userservice.h \
     mainwidget.h \
     profilepage.h \
-    gamespage.h
+    gamespage.h \
+    game1scene.h \
+    stagestate.h
+
+RESOURCES += \
+    images.qrc

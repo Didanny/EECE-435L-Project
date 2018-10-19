@@ -1,6 +1,8 @@
 #include <QApplication>
 #include <QWidget>
 #include <QPushButton>
+#include <QGraphicsView>
+#include <game1scene.h>
 
 #include <gamecontroller.h>
 /**
@@ -14,20 +16,17 @@ int main(int argc, char** argv)
 {
     QApplication app(argc,argv);
 
-    GameController *gameController = new GameController();
-    gameController->loadUser("b2");
+//    GameController *gameController = new GameController();
+//    gameController->loadUser("b2");
 
-//    main_page *main = new main_page();
-//    main->show();
+    Game1Scene *scene = new Game1Scene();
 
-//    MainWidget *m = new MainWidget();
-//    m->show();
-
-//    ProfilePage *profile = new ProfilePage();
-//    profile->show();
-
-//    GamesPage *g = new GamesPage();
-//    g->show();
+    QGraphicsView *view = new QGraphicsView();
+    view->setScene(scene);
+    view->setFixedSize(1028,675);
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->show();
 
     return app.exec();
 }
