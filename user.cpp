@@ -13,6 +13,7 @@ User::User(QString firstName, QString lastName, QString password, QString userna
     setUsername(username);
     setDOB(dob);
     setGender(gender);
+    _game1Checkpoint = 0;
 }
 
 void User::read(const QJsonObject &json)
@@ -23,6 +24,7 @@ void User::read(const QJsonObject &json)
     setUsername(json.find("username").value().toString());
     setDOB(json.find("dob").value().toString());
     setGender(json.find("gender").value().toString());
+    setGame1Checkpoint(json.find("game1checkpoint").value().toInt());
 }
 
 void User::write(QJsonObject &json) const
@@ -33,6 +35,7 @@ void User::write(QJsonObject &json) const
     json.insert("username",_username);
     json.insert("dob",_dob);
     json.insert("gender",_gender);
+    json.insert("game1checkpoint",_game1Checkpoint);
 }
 
 void User::saveUser()
@@ -79,6 +82,11 @@ bool User::isDOB()
     QDate today;
     today = today.currentDate();
     return _dob.mid(4,5) == today.toString().mid(4,5);
+}
+
+void User::setGame1Checkpoint(int checkpoint)
+{
+    _game1Checkpoint = checkpoint;
 }
 
 void User::setFirstName(QString firstName)
