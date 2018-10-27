@@ -5,9 +5,9 @@
 
 class LevelScene : public QGraphicsScene
 {
+    Q_OBJECT
 public:
     LevelScene();
-
 
 signals:
 
