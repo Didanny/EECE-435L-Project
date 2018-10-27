@@ -11,7 +11,8 @@ SOURCES += \
     profilepage.cpp \
     gamespage.cpp \
     game1scene.cpp \
-    stagemarker.cpp
+    stagemarker.cpp \
+    levelscene.cpp
 
 HEADERS += \
     loginform.h \
@@ -25,7 +26,8 @@ HEADERS += \
     gamespage.h \
     game1scene.h \
     stagestate.h \
-    stagemarker.h
+    stagemarker.h \
+    levelscene.h
 
 RESOURCES += \
     images.qrc
