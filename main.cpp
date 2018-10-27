@@ -16,17 +16,17 @@ int main(int argc, char** argv)
 {
     QApplication app(argc,argv);
 
-//    GameController *gameController = new GameController();
-//    gameController->loadUser("b2");
+    GameController *gameController = new GameController();
+    gameController->loadUser("b2");
 
-    Game1Scene *scene = new Game1Scene();
+//    Game1Scene *scene = new Game1Scene();
 
-    QGraphicsView *view = new QGraphicsView();
-    view->setScene(scene);
-    view->setFixedSize(1028,675);
-    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->show();
+//    QGraphicsView *view = new QGraphicsView();
+//    view->setScene(scene);
+//    view->setFixedSize(1028,675);
+//    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    view->show();
 
     return app.exec();
 }

@@ -1,7 +1,7 @@
 #include "userservice.h"
 
 UserService* UserService::_instance = 0;
-QString UserService::_currentUser = "";
+User* UserService::_currentUser = nullptr;
 
 UserService::UserService()
 {
@@ -40,10 +40,17 @@ bool UserService::getUser(QString username, User &user)
 
 void UserService::setCurrentUser(QString username)
 {
-    _currentUser = username;
+    User user;
+    getCurrentUser(user, username);
+    _currentUser = new User(user);
+}
+
+void UserService::getCurrentUser(User &user, QString username)
+{
+    getUser(username ,user);
 }
 
 void UserService::getCurrentUser(User &user)
 {
-    getUser(_currentUser,user);
+    getUser(_currentUser->getUsername(),user);
 }
