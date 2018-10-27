@@ -2,12 +2,18 @@
 #define HERO_H
 
 #include <QObject>
+#include <QGraphicsPixmapItem>
 
-class Hero : public QObject
+#include <direction.h>
+
+class Hero : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
     explicit Hero(QObject *parent = nullptr);
+
+private:
+    Direction _direction;
 
 signals:
 
