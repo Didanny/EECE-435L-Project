@@ -6,5 +6,6 @@
         <file>images/locked.png</file>
         <file>images/gold.png</file>
         <file>images/hero.png</file>
+        <file>images/level1.png</file>
     </qresource>
 </RCC>

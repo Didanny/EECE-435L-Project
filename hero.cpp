@@ -8,6 +8,6 @@ Hero::Hero(QObject *parent) : QObject(parent)
 
 void Hero::setDirection(Direction direction)
 {
-    _direction = Direction;
+    _direction = direction;
     // TODO: ROTATE Pixmap
 }
