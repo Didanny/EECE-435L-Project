@@ -14,7 +14,8 @@ SOURCES += \
     stagemarker.cpp \
     levelscene.cpp \
     hero.cpp \
-    level1.cpp
+    level1.cpp \
+    gold.cpp
 
 HEADERS += \
     loginform.h \
@@ -32,7 +33,8 @@ HEADERS += \
     levelscene.h \
     hero.h \
     direction.h \
-    level1.h
+    level1.h \
+    gold.h
 
 RESOURCES += \
     images.qrc

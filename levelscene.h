@@ -3,22 +3,28 @@
 
 #include <QGraphicsScene>
 #include <QtWidgets>
+#include <hero.h>
 
 class LevelScene : public QGraphicsScene
 {
     Q_OBJECT
 public:
     LevelScene();
-    virtual void execute(QString block, int i) = 0;
+    void execute(QString block, int i);
     QTextEdit *code;
     QTextEdit *functions;
     QPushButton *run;
     QPushButton *hint;
+    Hero *hero;
+
+private:
+    QString parseFunctionName(QString instruction);
+    QString parseObjectName(QString instruction);
 
 signals:
 
 public slots:
-    virtual void execute() = 0;
+    void execute();
 };
 
 #endif // LEVELSCENE_H

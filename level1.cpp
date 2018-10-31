@@ -7,15 +7,8 @@ Level1::Level1()
     hero = new Hero();
     hero->setPos(100,280);
     this->addItem(hero);
-}
 
-#include <QDebug>
-void Level1::execute()
-{
-    qDebug() << "YUP";
-}
-
-void Level1::execute(QString block, int i)
-{
-
+    gold = new Gold();
+    gold->setPos(400,280);
+    this->addItem(gold);
 }

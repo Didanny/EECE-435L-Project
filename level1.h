@@ -3,16 +3,14 @@
 
 #include <levelscene.h>
 #include <hero.h>
+#include <gold.h>
 
 class Level1 : public LevelScene
 {
 public:
     Level1();
-    Hero *hero;
-    virtual void execute(QString block, int i);
+    Gold *gold;
 
-public slots:
-    virtual void execute();
 };
 
 #endif // LEVEL1_H
