@@ -37,16 +37,23 @@ void LevelScene::execute(QString block, int i)
         QString instruction = list.at(j);
         QString object = parseObjectName(instruction);
 
-        switch(object)
+        if (object == "hero")
         {
-        case "hero":
-            break;
-        case "boat":
-            break;
-        case "repeat":
-            break;
-        default:
-            break;
+            QString function = parseFunctionName(instruction);
+            QString arg = parseArgument(instruction);
+
+            if (function == "move")
+            {
+                hero->move(arg.toInt());
+            }
+        }
+        else if (object == "boat")
+        {
+
+        }
+        else if (object == "repeat")
+        {
+
         }
     }
 }
@@ -54,12 +61,23 @@ void LevelScene::execute(QString block, int i)
 QString LevelScene::parseFunctionName(QString instruction)
 {
     QString objectName = parseObjectName(instruction);
-    QStringList list = instruction.split(parseObjectName(instruction) + ".");
-    list = list.at(0)
+
+    QString function = instruction.right(instruction.length() - objectName.length() - 1);
+
+//    qDebug() << "function: " << function;
+
+    QStringList list = function.split('(');
+    return list.at(0);
 }
 
 QString LevelScene::parseObjectName(QString instruction)
 {
-    QString list = instruction.split('.');
-    return list.size() > 1 ? list.at(0) : "repeat";
+    QStringList list = instruction.split('.');
+    return list.size() > 1 ? list.at(0) : instruction.split('(').at(0);
+}
+
+QString LevelScene::parseArgument(QString instruction)
+{
+    QStringList list = instruction.split(QRegularExpression("\\(|\\)"));
+    return list.at(1);
 }

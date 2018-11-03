@@ -11,3 +11,9 @@ void Hero::setDirection(Direction direction)
     _direction = direction;
     // TODO: ROTATE Pixmap
 }
+
+#include <QDebug>
+void Hero::move(int x)
+{
+    qDebug() << "Inside hero.move";
+}

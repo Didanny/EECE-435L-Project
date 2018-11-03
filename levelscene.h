@@ -20,6 +20,7 @@ public:
 private:
     QString parseFunctionName(QString instruction);
     QString parseObjectName(QString instruction);
+    QString parseArgument(QString instruction);
 
 signals:
 

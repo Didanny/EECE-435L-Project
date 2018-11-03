@@ -12,6 +12,7 @@ class Hero : public QObject, public QGraphicsPixmapItem
 public:
     explicit Hero(QObject *parent = nullptr);
     void setDirection(Direction direction);
+    void move(int x);
 
 private:
     Direction _direction;
