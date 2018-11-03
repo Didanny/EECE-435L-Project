@@ -3,8 +3,11 @@
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
+#include <QGraphicsScene>
 
 #include <direction.h>
+#include <utility.h>
+#include <gold.h>
 
 class Hero : public QObject, public QGraphicsPixmapItem
 {
@@ -13,9 +16,11 @@ public:
     explicit Hero(QObject *parent = nullptr);
     void setDirection(Direction direction);
     void move(int x);
+    void checkCollisions();
 
 private:
     Direction _direction;
+    int _gold;
 
 signals:
 

@@ -35,6 +35,7 @@ void LevelScene::execute(QString block, int i)
     for (int j = 0; j < list.size(); j++)
     {
         QString instruction = list.at(j);
+        instruction = instruction.trimmed();
         QString object = parseObjectName(instruction);
 
         if (object == "hero")

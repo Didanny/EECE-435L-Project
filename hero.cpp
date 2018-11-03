@@ -4,6 +4,7 @@ Hero::Hero(QObject *parent) : QObject(parent)
 {
     this->setPixmap((QPixmap(":/images/hero.png")).scaled(100,100));
     setDirection(RIGHT);
+    _gold = 0;
 }
 
 void Hero::setDirection(Direction direction)
@@ -13,10 +14,6 @@ void Hero::setDirection(Direction direction)
 }
 
 #include <QDebug>
-#include <QThread>
-#include <QMutex>
-#include <QWaitCondition>
-#include <QApplication>
 void Hero::move(int x)
 {
     int step = 45;
@@ -28,6 +25,8 @@ void Hero::move(int x)
     qDebug() << "Inside hero.move";
     for (int i = x; i > 0; i--)
     {
+        checkCollisions();
+
         switch(_direction)
         {
         case RIGHT:
@@ -45,11 +44,23 @@ void Hero::move(int x)
         default:
             break;
         }
+        Utility::delay(200);
+    }
+}
 
-        QMutex localMutex;
-        QWaitCondition sleepSimulator;
-        sleepSimulator.wait(&localMutex, 200);
-        QApplication::processEvents();
+void Hero::checkCollisions()
+{
+    QList<QGraphicsItem*> collidingObstacles = collidingItems();
 
+    for (int i = 0; i < collidingObstacles.size(); i++)
+    {
+        qDebug() << "OBSTACLE " + i;
+        QGraphicsItem *obstacle = collidingObstacles[i];
+        if (typeid(*obstacle) == typeid(Gold))
+        {
+            scene()->removeItem(obstacle);
+            delete obstacle;
+            _gold++;
+        }
     }
 }
