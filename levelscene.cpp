@@ -44,53 +44,65 @@ LevelScene::LevelScene()
 void LevelScene::execute()
 {
     execute(this->code->toPlainText(),1);
+    resetLevel();
 }
 
 void LevelScene::execute(QString block, int i)
 {
     QStringList list = block.split('\n');
     qDebug() << list.at(list.size() - 1);
-    for (int j = 0; j < list.size(); j++)
+    for (i; i > 0; i--)
     {
-        QString instruction = list.at(j);
-        instruction = instruction.trimmed();
-        QString object = parseObjectName(instruction);
-
-        if (object == "hero")
+        for (int j = 0; j < list.size(); j++)
         {
-            QString function = parseFunctionName(instruction);
-            QString arg = parseArgument(instruction);
+            QString instruction = list.at(j);
+            instruction = instruction.trimmed();
+            QString object = parseObjectName(instruction);
 
-            if (function == "move")
+            if (object == "hero")
             {
-                hero->move(arg.toInt());
-            }
-            else if (function == "turn")
-            {
-                hero->turn(arg.toInt());
-            }
-        }
-        else if (object == "boat")
-        {
-            QString function = parseFunctionName(instruction);
-            QString arg = parseArgument(instruction);
+                QString function = parseFunctionName(instruction);
+                QString arg = parseArgument(instruction);
 
-            if (function == "move")
-            {
-                boat->move(arg.toInt());
+                if (function == "move")
+                {
+                    hero->move(arg.toInt());
+                }
+                else if (function == "turn")
+                {
+                    hero->turn(arg.toInt());
+                }
             }
-            else if (function == "turn")
+            else if (object == "boat")
             {
-                boat->turn(arg.toInt());
-            }
-        }
-        else if (object == "repeat")
-        {
+                QString function = parseFunctionName(instruction);
+                QString arg = parseArgument(instruction);
 
+                if (function == "move")
+                {
+                    boat->move(arg.toInt());
+                }
+                else if (function == "turn")
+                {
+                    boat->turn(arg.toInt());
+                }
+            }
+            else if (object == "repeat")
+            {
+                QString arg = parseArgument(instruction);
+
+                QString repeatBlock;
+                while (!(list.at(j+1).contains("end")))
+                {
+                    repeatBlock += "\n" + list.at(j+1);
+                    j++;
+                }
+                execute(repeatBlock,arg.toInt());
+                qDebug() << "REPEAT BLOCK:" << repeatBlock;
+                j++;
+            }
         }
     }
-
-    resetLevel();
 }
 
 void LevelScene::setRequiredGold(int gold)

@@ -6,22 +6,22 @@ Level6::Level6()
 
     water = new Water();
     water->setImageAndSize(QString("river-vert"),140,675);
-    water->setPos(300,0);
+    water->setPos(250,0);
     this->addItem(water);
 
     bridge = new SafeSurface();
     bridge->setImageAndSize(QString("bridge"),160,120);
-    bridge->setPos(290,90);
+    bridge->setPos(240,90);
     this->addItem(bridge);
 
     hero = new Hero();
-    hero->setPos(600,425);
+    hero->setPos(425,425);
     this->addItem(hero);
 
     gold = new Gold*[3];
 
     gold[0] = new Gold();
-    gold[0]->setPos(600,125);
+    gold[0]->setPos(425,125);
     this->addItem(gold[0]);
 
     gold[1] = new Gold();
@@ -41,6 +41,6 @@ void Level6::resetLevel()
     {
         this->addItem(gold[i]);
     }
-    hero->setPos(600,425);
+    hero->setPos(425,425);
     hero->reset();
 }
