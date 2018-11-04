@@ -24,6 +24,10 @@ LevelScene::LevelScene()
     functions->move(this->width() - functions->width() - 10, 20 + code->height() + run->height());
     this->addWidget(functions);
 
+    time = Game1Time::getInstance();
+    this->addItem(time);
+    time->start();
+
     setRetries(4);
     setScore(0);
 

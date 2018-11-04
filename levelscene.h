@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QtWidgets>
 #include <hero.h>
+#include <game1time.h>
 
 class LevelScene : public QGraphicsScene
 {
@@ -20,6 +21,7 @@ public:
     void setRetries(int retries);
     void setScore(int score);
     bool checkWin();
+    Game1Time *time;
 
 private:
     QString parseFunctionName(QString instruction);
