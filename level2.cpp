@@ -28,4 +28,5 @@ void Level2::resetLevel()
         this->addItem(gold[i]);
     }
     hero->setPos(350,280);
+    hero->reset();
 }

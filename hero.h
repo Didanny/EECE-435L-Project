@@ -17,6 +17,7 @@ public:
     void setDirection(Direction direction);
     void move(int x);
     void turn(int a);
+    void reset();
     void checkCollisions();
     int getGold();
 

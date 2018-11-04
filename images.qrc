@@ -5,7 +5,14 @@
         <file>images/done.png</file>
         <file>images/locked.png</file>
         <file>images/gold.png</file>
-        <file>images/hero.png</file>
         <file>images/level1.png</file>
+        <file>images/boat-down.png</file>
+        <file>images/boat-left.png</file>
+        <file>images/boat-right.png</file>
+        <file>images/boat-up.png</file>
+        <file>images/hero-down.png</file>
+        <file>images/hero-left.png</file>
+        <file>images/hero-right.png</file>
+        <file>images/hero-up.png</file>
     </qresource>
 </RCC>

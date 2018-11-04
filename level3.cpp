@@ -20,5 +20,6 @@ Level3::Level3()
 void Level3::resetLevel()
 {
     hero->setPos(100,380);
+    hero->reset();
     this->addItem(gold);
 }

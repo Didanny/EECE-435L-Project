@@ -2,7 +2,7 @@
 
 Hero::Hero(QObject *parent) : QObject(parent)
 {
-    this->setPixmap((QPixmap(":/images/hero.png")).scaled(100,100));
+    this->setPixmap((QPixmap(":/images/hero-right.png")).scaled(100,100));
     setDirection(RIGHT);
     _gold = 0;
 }
@@ -55,8 +55,35 @@ void Hero::turn(int a)
         a = 360 + a;
     }
 
-    a = (int)_direction + a;
+    a = (int)((_direction + a) % 360);
     _direction = (Direction)a;
+
+    qDebug() << "Direction" + QString::number(_direction);
+
+    switch(_direction)
+    {
+    case RIGHT:
+        this->setPixmap((QPixmap(":/images/hero-right.png")).scaled(100,100));
+        break;
+    case UP:
+        this->setPixmap((QPixmap(":/images/hero-up.png")).scaled(100,100));
+        break;
+    case LEFT:
+        this->setPixmap((QPixmap(":/images/hero-left.png")).scaled(100,100));
+        break;
+    case DOWN:
+        this->setPixmap((QPixmap(":/images/hero-down.png")).scaled(100,100));
+        break;
+    default:
+        break;
+    }
+}
+
+void Hero::reset()
+{
+    this->setPixmap((QPixmap(":/images/hero-right.png")).scaled(100,100));
+    setDirection(RIGHT);
+    _gold = 0;
 }
 
 void Hero::checkCollisions()
