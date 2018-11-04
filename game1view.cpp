@@ -7,8 +7,11 @@ Game1View::Game1View()
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     level1 = new Level1();
+    level2 = new Level2();
+    level3 = new Level3();
 
-    this->setScene(level1);
+    this->setScene(level3);
 
     this->show();
 }
+

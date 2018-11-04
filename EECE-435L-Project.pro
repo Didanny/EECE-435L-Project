@@ -18,7 +18,9 @@ SOURCES += \
     gold.cpp \
     utility.cpp \
     game1view.cpp \
-    game1time.cpp
+    game1time.cpp \
+    level2.cpp \
+    level3.cpp
 
 HEADERS += \
     loginform.h \
@@ -40,7 +42,9 @@ HEADERS += \
     gold.h \
     utility.h \
     game1view.h \
-    game1time.h
+    game1time.h \
+    level2.h \
+    level3.h
 
 RESOURCES += \
     images.qrc
