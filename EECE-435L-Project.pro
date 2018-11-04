@@ -25,7 +25,8 @@ SOURCES += \
     level4.cpp \
     water.cpp \
     safesurface.cpp \
-    level5.cpp
+    level5.cpp \
+    level6.cpp
 
 HEADERS += \
     loginform.h \
@@ -54,7 +55,8 @@ HEADERS += \
     level4.h \
     water.h \
     safesurface.h \
-    level5.h
+    level5.h \
+    level6.h
 
 RESOURCES += \
     images.qrc
