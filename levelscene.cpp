@@ -19,6 +19,14 @@ LevelScene::LevelScene()
     hint->move(this->width() - hint->width() - 10, code->height() + 10);
     this->addWidget(hint);
 
+    functions = new QTextEdit();
+    functions->resize(200,200);
+    functions->move(this->width() - functions->width() - 10, 20 + code->height() + run->height());
+    this->addWidget(functions);
+
+    setRetries(4);
+    setScore(0);
+
     QObject::connect(run,SIGNAL(clicked(bool)),this,SLOT(execute()));
 }
 
@@ -57,6 +65,31 @@ void LevelScene::execute(QString block, int i)
 
         }
     }
+}
+
+void LevelScene::setRequiredGold(int gold)
+{
+    _requiredGold = gold;
+}
+
+void LevelScene::setRetries(int retries)
+{
+    _retries = retries;
+}
+
+void LevelScene::setScore(int score)
+{
+    _score = score;
+}
+
+bool LevelScene::checkWin()
+{
+    if (hero->getGold() >= _requiredGold && _score == 0)
+    {
+        setScore(retries * 10);
+        return true;
+    }
+    return false;
 }
 
 QString LevelScene::parseFunctionName(QString instruction)

@@ -64,3 +64,8 @@ void Hero::checkCollisions()
         }
     }
 }
+
+int Hero::getGold()
+{
+    return _gold;
+}

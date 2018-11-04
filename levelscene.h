@@ -16,11 +16,16 @@ public:
     QPushButton *run;
     QPushButton *hint;
     Hero *hero;
+    void setRequiredGold(int gold);
+    void setRetries(int retries);
+    bool checkWin();
 
 private:
     QString parseFunctionName(QString instruction);
     QString parseObjectName(QString instruction);
     QString parseArgument(QString instruction);
+    int _requiredGold;
+    int _retries;
 
 signals:
 

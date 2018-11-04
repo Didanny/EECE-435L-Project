@@ -11,4 +11,6 @@ Level1::Level1()
     gold = new Gold();
     gold->setPos(400,280);
     this->addItem(gold);
+
+    setRequiredGold(1);
 }
