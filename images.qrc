@@ -14,5 +14,9 @@
         <file>images/hero-left.png</file>
         <file>images/hero-right.png</file>
         <file>images/hero-up.png</file>
+        <file>images/level4.png</file>
+        <file>images/level6.png</file>
+        <file>images/river.png</file>
+        <file>images/river-vert.png</file>
     </qresource>
 </RCC>
