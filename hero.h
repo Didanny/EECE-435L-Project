@@ -16,6 +16,7 @@ public:
     explicit Hero(QObject *parent = nullptr);
     void setDirection(Direction direction);
     void move(int x);
+    void turn(int a);
     void checkCollisions();
     int getGold();
 

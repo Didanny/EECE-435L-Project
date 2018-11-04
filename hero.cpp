@@ -48,6 +48,17 @@ void Hero::move(int x)
     }
 }
 
+void Hero::turn(int a)
+{
+    if (a < 0)
+    {
+        a = 360 + a;
+    }
+
+    a = (int)_direction + a;
+    _direction = (Direction)a;
+}
+
 void Hero::checkCollisions()
 {
     QList<QGraphicsItem*> collidingObstacles = collidingItems();

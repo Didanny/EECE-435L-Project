@@ -59,6 +59,10 @@ void LevelScene::execute(QString block, int i)
             {
                 hero->move(arg.toInt());
             }
+            else if (function == "turn")
+            {
+                hero->turn(arg.toInt());
+            }
         }
         else if (object == "boat")
         {
