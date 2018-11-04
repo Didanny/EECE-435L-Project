@@ -14,3 +14,9 @@ Level1::Level1()
 
     setRequiredGold(1);
 }
+
+void Level1::resetLevel()
+{
+    hero->setPos(100,280);
+    this->addItem(gold);
+}

@@ -54,12 +54,12 @@ void Hero::checkCollisions()
 
     for (int i = 0; i < collidingObstacles.size(); i++)
     {
-        qDebug() << "OBSTACLE " + i;
+        qDebug() << "OBSTACLE " + QString::number(i);
         QGraphicsItem *obstacle = collidingObstacles[i];
         if (typeid(*obstacle) == typeid(Gold))
         {
             scene()->removeItem(obstacle);
-            delete obstacle;
+//            delete obstacle;
             _gold++;
         }
     }

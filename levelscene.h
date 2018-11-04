@@ -22,6 +22,7 @@ public:
     void setScore(int score);
     bool checkWin();
     Game1Time *time;
+    virtual void resetLevel();
 
 private:
     QString parseFunctionName(QString instruction);

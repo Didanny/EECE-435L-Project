@@ -69,6 +69,8 @@ void LevelScene::execute(QString block, int i)
 
         }
     }
+
+    resetLevel();
 }
 
 void LevelScene::setRequiredGold(int gold)
@@ -94,6 +96,11 @@ bool LevelScene::checkWin()
         return true;
     }
     return false;
+}
+
+void LevelScene::resetLevel()
+{
+
 }
 
 QString LevelScene::parseFunctionName(QString instruction)
