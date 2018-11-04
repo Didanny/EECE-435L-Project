@@ -7,22 +7,28 @@ LevelScene::LevelScene()
     code = new QTextEdit();
     code->resize(200,200);
     code->move(this->width() - code->width() - 10, 10);
-    this->addWidget(code);
+    QGraphicsProxyWidget *proxyWidget = this->addWidget(code);
+    proxyWidget->setZValue(1000);
 
     run = new QPushButton("Run");
     run->resize(100,25);
     run->move(this->width() - run->width() - 110, code->height() + 10);
-    this->addWidget(run);
+    proxyWidget = this->addWidget(run);
+    proxyWidget->setZValue(1000);
 
     hint = new QPushButton("Hint");
     hint->resize(100,25);
     hint->move(this->width() - hint->width() - 10, code->height() + 10);
-    this->addWidget(hint);
+    proxyWidget = this->addWidget(hint);
+    proxyWidget->setZValue(1000);
+
 
     functions = new QTextEdit();
     functions->resize(200,200);
     functions->move(this->width() - functions->width() - 10, 20 + code->height() + run->height());
-    this->addWidget(functions);
+    proxyWidget = this->addWidget(functions);
+    proxyWidget->setZValue(1000);
+
 
     time = Game1Time::getInstance();
     this->addItem(time);

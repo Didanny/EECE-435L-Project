@@ -21,7 +21,9 @@ SOURCES += \
     game1time.cpp \
     level2.cpp \
     level3.cpp \
-    boat.cpp
+    boat.cpp \
+    level4.cpp \
+    water.cpp
 
 HEADERS += \
     loginform.h \
@@ -46,7 +48,9 @@ HEADERS += \
     game1time.h \
     level2.h \
     level3.h \
-    boat.h
+    boat.h \
+    level4.h \
+    water.h
 
 RESOURCES += \
     images.qrc
