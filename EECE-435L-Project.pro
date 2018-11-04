@@ -24,7 +24,8 @@ SOURCES += \
     boat.cpp \
     level4.cpp \
     water.cpp \
-    safesurface.cpp
+    safesurface.cpp \
+    level5.cpp
 
 HEADERS += \
     loginform.h \
@@ -52,7 +53,8 @@ HEADERS += \
     boat.h \
     level4.h \
     water.h \
-    safesurface.h
+    safesurface.h \
+    level5.h
 
 RESOURCES += \
     images.qrc

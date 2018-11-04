@@ -80,16 +80,16 @@ void Boat::turn(int a)
     switch(_direction)
     {
     case RIGHT:
-        this->setPixmap((QPixmap(":/images/boat-right.png")).scaled(100,100));
+        this->setPixmap((QPixmap(":/images/boat-right.png")).scaled(175,175));
         break;
     case UP:
-        this->setPixmap((QPixmap(":/images/boat-up.png")).scaled(100,100));
+        this->setPixmap((QPixmap(":/images/boat-up.png")).scaled(175,175));
         break;
     case LEFT:
-        this->setPixmap((QPixmap(":/images/boat-left.png")).scaled(100,100));
+        this->setPixmap((QPixmap(":/images/boat-left.png")).scaled(175,175));
         break;
     case DOWN:
-        this->setPixmap((QPixmap(":/images/boat-down.png")).scaled(100,100));
+        this->setPixmap((QPixmap(":/images/boat-down.png")).scaled(175,175));
         break;
     default:
         break;

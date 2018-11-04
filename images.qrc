@@ -18,5 +18,9 @@
         <file>images/level6.png</file>
         <file>images/river.png</file>
         <file>images/river-vert.png</file>
+        <file>images/bridge.png</file>
+        <file>images/grass.png</file>
+        <file>images/island.png</file>
+        <file>images/ocean.png</file>
     </qresource>
 </RCC>

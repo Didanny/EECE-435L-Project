@@ -4,7 +4,6 @@
 #include <levelscene.h>
 #include <gold.h>
 #include <water.h>
-#include <boat.h>
 
 class Level4 : public LevelScene
 {
