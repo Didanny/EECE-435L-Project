@@ -86,7 +86,7 @@ bool LevelScene::checkWin()
 {
     if (hero->getGold() >= _requiredGold && _score == 0)
     {
-        setScore(retries * 10);
+        setScore(_retries * 10);
         return true;
     }
     return false;

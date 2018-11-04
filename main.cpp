@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 #include <game1scene.h>
 #include <level1.h>
+#include <game1view.h>
 
 #include <gamecontroller.h>
 /**
@@ -21,14 +22,19 @@ int main(int argc, char** argv)
 //    gameController->loadUser("b2");
 
 //    Game1Scene *scene = new Game1Scene();
-    Level1 *scene = new Level1();
 
-    QGraphicsView *view = new QGraphicsView();
-    view->setScene(scene);
-    view->setFixedSize(1028,675);
-    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    view->show();
+    Game1View *view = new Game1View();
+
+
+
+//    Level1 *scene = new Level1();
+
+//    QGraphicsView *view = new QGraphicsView();
+//    view->setScene(scene);
+//    view->setFixedSize(1028,675);
+//    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+//    view->show();
 
 
 

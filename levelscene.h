@@ -18,6 +18,7 @@ public:
     Hero *hero;
     void setRequiredGold(int gold);
     void setRetries(int retries);
+    void setScore(int score);
     bool checkWin();
 
 private:
@@ -26,6 +27,7 @@ private:
     QString parseArgument(QString instruction);
     int _requiredGold;
     int _retries;
+    int _score;
 
 signals:
 

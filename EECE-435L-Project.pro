@@ -16,7 +16,8 @@ SOURCES += \
     hero.cpp \
     level1.cpp \
     gold.cpp \
-    utility.cpp
+    utility.cpp \
+    game1view.cpp
 
 HEADERS += \
     loginform.h \
@@ -36,7 +37,8 @@ HEADERS += \
     direction.h \
     level1.h \
     gold.h \
-    utility.h
+    utility.h \
+    game1view.h
 
 RESOURCES += \
     images.qrc
