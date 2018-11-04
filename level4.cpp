@@ -32,10 +32,12 @@ Level4::Level4()
 
 void Level4::resetLevel()
 {
-    for (int i = 2; i > -1; i++)
+    for (int i = 1; i > -1; i--)
     {
         this->addItem(gold[i]);
     }
+    hero->setPos(100,520);
     hero->reset();
+    boat->setPos(100,325);
     boat->reset();
 }

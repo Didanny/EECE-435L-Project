@@ -5,6 +5,7 @@
 #include <QtWidgets>
 #include <hero.h>
 #include <game1time.h>
+#include <boat.h>
 
 class LevelScene : public QGraphicsScene
 {
@@ -17,6 +18,7 @@ public:
     QPushButton *run;
     QPushButton *hint;
     Hero *hero;
+    Boat *boat;
     void setRequiredGold(int gold);
     void setRetries(int retries);
     void setScore(int score);

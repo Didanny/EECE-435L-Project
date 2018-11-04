@@ -22,7 +22,7 @@ public:
 
 private:
     Direction _direction;
-    QGraphicsPixmapItem *_passenger;
+    Hero *_passenger;
 
 signals:
 

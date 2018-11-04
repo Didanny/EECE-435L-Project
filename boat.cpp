@@ -21,7 +21,7 @@ void Boat::move(int x)
         step = -1 * step;
         x = -1 * x;
     }
-    qDebug() << "Inside hero.move";
+    qDebug() << "Inside boat.move";
 
     getPassenger();
 
@@ -31,25 +31,38 @@ void Boat::move(int x)
         {
         case RIGHT:
             this->setPos(this->x() + step, this->y());
-            _passenger->setPos(this->x() + step, this->y());
+            if (_passenger != nullptr){
+                _passenger->setPos(this->x() + step, this->y());
+                _passenger->checkCollisions();
+            }
             break;
         case UP:
             this->setPos(this->x(), this->y() - step);
-            _passenger->setPos(this->x(), this->y() - step);
+            if (_passenger != nullptr){
+                _passenger->setPos(this->x() + step, this->y());
+                _passenger->checkCollisions();
+            }
             break;
         case LEFT:
             this->setPos(this->x() - step, this->y());
-            _passenger->setPos(this->x() - step, this->y());
+            if (_passenger != nullptr){
+                _passenger->setPos(this->x() + step, this->y());
+                _passenger->checkCollisions();
+            }
             break;
         case DOWN:
             this->setPos(this->x(), this->y() + step);
-            _passenger->setPos(this->x(), this->y() + step);
+            if (_passenger != nullptr){
+                _passenger->setPos(this->x() + step, this->y());
+                _passenger->checkCollisions();
+            }
             break;
         default:
             break;
         }
         Utility::delay(200);
     }
+    qDebug() << "Finished boat.move";
 }
 
 void Boat::turn(int a)
@@ -93,7 +106,7 @@ void Boat::getPassenger()
         QGraphicsItem *passenger = collidingObstacles[i];
         if (typeid(*passenger) == typeid(Hero))
         {
-            _passenger = (QGraphicsPixmapItem*)passenger;
+            _passenger = (Hero*)passenger;
         }
     }
 }

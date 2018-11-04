@@ -13,7 +13,6 @@ public:
     virtual void resetLevel();
     Water *water;
     Gold **gold;
-    Boat *boat;
 };
 
 #endif // LEVEL4_H

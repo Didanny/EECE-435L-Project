@@ -72,7 +72,17 @@ void LevelScene::execute(QString block, int i)
         }
         else if (object == "boat")
         {
+            QString function = parseFunctionName(instruction);
+            QString arg = parseArgument(instruction);
 
+            if (function == "move")
+            {
+                boat->move(arg.toInt());
+            }
+            else if (function == "turn")
+            {
+                boat->turn(arg.toInt());
+            }
         }
         else if (object == "repeat")
         {
