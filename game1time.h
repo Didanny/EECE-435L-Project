@@ -1,6 +1,8 @@
 #ifndef GAME1TIME_H
 #define GAME1TIME_H
 
+#include <QDebug>
+
 #include <QFont>
 #include <QGraphicsTextItem>
 #include <QTimer>

@@ -27,7 +27,8 @@ SOURCES += \
     safesurface.cpp \
     level5.cpp \
     level6.cpp \
-    retries.cpp
+    retries.cpp \
+    level7.cpp
 
 HEADERS += \
     loginform.h \
@@ -58,7 +59,8 @@ HEADERS += \
     safesurface.h \
     level5.h \
     level6.h \
-    retries.h
+    retries.h \
+    level7.h
 
 RESOURCES += \
     images.qrc

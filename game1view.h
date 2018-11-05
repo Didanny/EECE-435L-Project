@@ -9,6 +9,7 @@
 #include <level4.h>
 #include <level5.h>
 #include <level6.h>
+#include <level7.h>
 
 class Game1View : public QGraphicsView
 {
@@ -21,6 +22,7 @@ public:
     Level4 *level4;
     Level5 *level5;
     Level6 *level6;
+    Level7 *level7;
 };
 
 #endif // GAME1VIEW_H

@@ -43,6 +43,7 @@ void Game1Time::start()
 
 void Game1Time::countdown()
 {
+//    qDebug() << "countdown";
     _seconds--;
     if (_seconds < 0)
     {

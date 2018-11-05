@@ -6,6 +6,7 @@ Level5::Level5()
 
     water = new Water();
     water->setImageAndSize(QString("ocean"),1028,675);
+    water->setPos(0,0);
     this->addItem(water);
 
     island = new SafeSurface();
