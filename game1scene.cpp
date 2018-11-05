@@ -42,6 +42,48 @@ Game1Scene::Game1Scene()
         this->addItem(markers[i]);
     }
 
+    currentMarker = 0;
+
     this->setBackgroundBrush(QBrush(QImage(":/images/map.jpg").scaledToHeight(675).scaledToWidth(1028)));
     this->setSceneRect(0,0,1028,675);
+
+    time = Game1Time::getInstance();
+    this->addItem(time);
+}
+
+void Game1Scene::keyPressEvent(QKeyEvent *event)
+{
+    qDebug() << "Click";
+
+    int next = (currentMarker + 1) % 8;
+    int prev = ((currentMarker - 1) % -8);
+
+    if (event->key() == Qt::Key_Right)
+    {
+        qDebug() << "Right click";
+
+        if (markers[next]->getState() != " ")
+        {
+            markers[next]->setStageState("current");
+            markers[currentMarker]->setStageState("done");
+            currentMarker = next;
+
+//            next();
+        }
+    }
+    else if (event->key() == Qt::Key_Left)
+    {
+        if (markers[prev]->getState() != "locked")
+        {
+            markers[prev]->setStageState("current");
+            markers[currentMarker]->setStageState("done");
+            currentMarker = prev;
+
+//            previous();
+        }
+    }
+    else if (event->key() == Qt::Key_Enter)
+    {
+
+    }
 }

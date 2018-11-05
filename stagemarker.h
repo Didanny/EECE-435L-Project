@@ -13,6 +13,7 @@ public:
     explicit StageMarker(QObject *parent = nullptr);
     void setName(QString name);
     void setStageState(QString state);
+    QString getState();
 
 private:
     QString _state;
