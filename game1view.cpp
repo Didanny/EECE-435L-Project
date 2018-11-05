@@ -13,7 +13,7 @@ Game1View::Game1View()
     level5 = new Level5();
     level6 = new Level6();
 
-    this->setScene(level6);
+    this->setScene(level5);
 
     this->show();
 }

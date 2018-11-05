@@ -6,6 +6,7 @@
 #include <hero.h>
 #include <game1time.h>
 #include <boat.h>
+#include <retries.h>
 
 class LevelScene : public QGraphicsScene
 {
@@ -24,6 +25,7 @@ public:
     void setScore(int score);
     bool checkWin();
     Game1Time *time;
+    Retries *retries;
     virtual void resetLevel();
 
 private:

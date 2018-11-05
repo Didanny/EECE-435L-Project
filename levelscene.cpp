@@ -34,6 +34,10 @@ LevelScene::LevelScene()
     this->addItem(time);
     time->start();
 
+    retries = new Retries();
+    retries->setPos(0,30);
+    this->addItem(retries);
+
     setRetries(4);
     setScore(0);
 
