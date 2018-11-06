@@ -35,6 +35,7 @@ public slots:
     void nextLevel();
     void previousLevel();
     void openLevel();
+    void levelWon();
 };
 
 #endif // GAME1VIEW_H

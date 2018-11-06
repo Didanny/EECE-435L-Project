@@ -16,6 +16,7 @@ void Retries::setRetries(int retries)
 void Retries::decrease()
 {
     _retries--;
+    updateText();
 }
 
 void Retries::updateText()

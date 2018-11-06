@@ -23,6 +23,7 @@ public:
     void setRequiredGold(int gold);
     void setRetries(int retries);
     void setScore(int score);
+    int getScore();
     bool checkWin();
     Game1Time *time;
     Retries *retries;
@@ -37,6 +38,7 @@ private:
     int _score;
 
 signals:
+    void win();
 
 public slots:
     void execute();

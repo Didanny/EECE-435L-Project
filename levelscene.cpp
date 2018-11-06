@@ -51,6 +51,17 @@ LevelScene::LevelScene()
 void LevelScene::execute()
 {
     execute(this->code->toPlainText(),1);
+    if (checkWin())
+    {
+        // WIN
+        win();
+    }
+    _retries--;
+    retries->decrease();
+    if (_retries == 0)
+    {
+        // GAME OVER
+    }
     resetLevel();
 }
 
@@ -125,6 +136,11 @@ void LevelScene::setRetries(int retries)
 void LevelScene::setScore(int score)
 {
     _score = score;
+}
+
+int LevelScene::getScore()
+{
+    return _score;
 }
 
 bool LevelScene::checkWin()
