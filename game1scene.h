@@ -18,10 +18,12 @@ public:
     int currentMarker;
     Game1Time *time;
     void keyPressEvent(QKeyEvent *event);
+    void setMarkers(int i);
+    int getCurrent();
+
 
 signals:
-    void next();
-    void previous();
+    void enterLevel();
 
 public slots:
 

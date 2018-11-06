@@ -44,11 +44,14 @@ Game1Scene::Game1Scene()
 
     currentMarker = 0;
 
-    this->setBackgroundBrush(QBrush(QImage(":/images/map.jpg").scaledToHeight(675).scaledToWidth(1028)));
-    this->setSceneRect(0,0,1028,675);
-
     time = Game1Time::getInstance();
     this->addItem(time);
+    time->setPos(0,0);
+    time->setZValue(1000);
+    time->start();
+
+    this->setBackgroundBrush(QBrush(QImage(":/images/map.jpg").scaledToHeight(675).scaledToWidth(1028)));
+    this->setSceneRect(0,0,1028,675);
 }
 
 void Game1Scene::keyPressEvent(QKeyEvent *event)
@@ -62,28 +65,41 @@ void Game1Scene::keyPressEvent(QKeyEvent *event)
     {
         qDebug() << "Right click";
 
-        if (markers[next]->getState() != " ")
+        if (markers[next]->getState() != "locked")
         {
             markers[next]->setStageState("current");
             markers[currentMarker]->setStageState("done");
             currentMarker = next;
-
-//            next();
         }
     }
     else if (event->key() == Qt::Key_Left)
     {
+        if (prev < 0) return;
         if (markers[prev]->getState() != "locked")
         {
             markers[prev]->setStageState("current");
             markers[currentMarker]->setStageState("done");
             currentMarker = prev;
-
-//            previous();
         }
     }
-    else if (event->key() == Qt::Key_Enter)
+    else if (event->key() == Qt::Key_Enter || event->key() == Qt::Key_Return)
     {
-
+        qDebug() << "Enter";
+        enterLevel();
     }
+}
+
+void Game1Scene::setMarkers(int i)
+{
+    int j = 0;
+    for (j; j < i; j++)
+    {
+        markers[j]->setStageState("done");
+    }
+    markers[i]->setStageState("current");
+}
+
+int Game1Scene::getCurrent()
+{
+    return currentMarker;
 }

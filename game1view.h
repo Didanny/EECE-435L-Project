@@ -2,6 +2,7 @@
 #define GAME1VIEW_H
 
 #include <QGraphicsView>
+#include <QObject>
 #include <game1scene.h>
 #include <level1.h>
 #include <level2.h>
@@ -13,6 +14,7 @@
 
 class Game1View : public QGraphicsView
 {
+    Q_OBJECT
 public:
     Game1View();
     Game1Scene *levelsScreen;
@@ -32,6 +34,7 @@ signals:
 public slots:
     void nextLevel();
     void previousLevel();
+    void openLevel();
 };
 
 #endif // GAME1VIEW_H

@@ -30,11 +30,11 @@ LevelScene::LevelScene()
     proxyWidget->setZValue(1000);
 
 
-    time = Game1Time::getInstance();
-    this->addItem(time);
-    time->setPos(0,0);
-    time->setZValue(1000);
-    time->start();
+//    time = Game1Time::getInstance();
+//    this->addItem(time);
+//    time->setPos(0,0);
+//    time->setZValue(1000);
+//    time->start();
 
     retries = new Retries();
     retries->setPos(0,30);

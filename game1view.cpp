@@ -32,6 +32,8 @@ Game1View::Game1View()
     this->setScene(levelsScreen);
 
     this->show();
+
+    QObject::connect(levelsScreen,SIGNAL(enterLevel()),this,SLOT(openLevel()));
 }
 
 void Game1View::nextLevel()
@@ -42,5 +44,11 @@ void Game1View::nextLevel()
 void Game1View::previousLevel()
 {
     currentLevel = (currentLevel - 1) % 8;
+}
+
+void Game1View::openLevel()
+{
+    this->setScene(levels[levelsScreen->getCurrent()]);
+    levels[levelsScreen->getCurrent()]->addItem(Game1Time::getInstance());
 }
 
