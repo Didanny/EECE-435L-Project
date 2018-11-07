@@ -31,7 +31,7 @@ Game1View::Game1View()
 
     this->setScene(levelsScreen);
 
-    this->show();
+//    this->show();
 
     QObject::connect(levelsScreen,SIGNAL(enterLevel()),this,SLOT(openLevel()));
 

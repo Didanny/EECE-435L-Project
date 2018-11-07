@@ -4,11 +4,11 @@
 #include <QWidget>
 #include <QtWidgets>
 
-class GameSartMenu : public QWidget
+class GameStartMenu : public QWidget
 {
     Q_OBJECT
 public:
-    explicit GameSartMenu(QWidget *parent = nullptr);
+    explicit GameStartMenu(QWidget *parent = nullptr);
     QPushButton *btnNewGame;
     QPushButton *btnResume;
     QVBoxLayout *loVbox;

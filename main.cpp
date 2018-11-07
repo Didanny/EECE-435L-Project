@@ -5,6 +5,7 @@
 #include <game1scene.h>
 #include <level1.h>
 #include <game1view.h>
+#include <game1controller.h>
 
 #include <gamecontroller.h>
 /**
@@ -23,7 +24,9 @@ int main(int argc, char** argv)
 
 //    Game1Scene *scene = new Game1Scene();
 
-    Game1View *view = new Game1View();
+//    Game1View *view = new Game1View();
+
+    Game1Controller *controller = new Game1Controller();
 
 
 
