@@ -44,12 +44,13 @@ void LeaderBoardService::loadBoards()
     if (file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QTextStream stream(&file);
-        while (!stream.atEnd()){
+        while (!stream.atEnd())
+        {
             line = stream.readLine();
-            if (line.length() > 1)
+            if (line.length() > 2)
             {
                 QStringList list = line.split(',');
-                game1boardr[list.at(0).toInt()] = list.at(1);
+                game1boardr[list.at(1).toInt()] = list.at(0);
 
 //                qDebug() << game1boardf["dan"];
 //                qDebug() << game1boardr[12];
