@@ -50,6 +50,10 @@ Game1Scene::Game1Scene()
     time->setZValue(1000);
     time->start();
 
+    btnSave = new QPushButton("Save");
+    btnSave->move(1028 - 100, 10);
+    this->addWidget(btnSave);
+
     this->setBackgroundBrush(QBrush(QImage(":/images/map.jpg").scaledToHeight(675).scaledToWidth(1028)));
     this->setSceneRect(0,0,1028,675);
 }

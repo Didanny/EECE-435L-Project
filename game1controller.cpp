@@ -14,6 +14,7 @@ void Game1Controller::resumeGame()
 {
     menu->close();
     view = new Game1View();
+    QObject::connect(view->levelsScreen->btnSave,SIGNAL(clicked(bool)),this,SLOT(saveGame()));
 
     //TEST CODE
     Game1Info info;
@@ -41,5 +42,12 @@ void Game1Controller::newGame()
 {
     menu->close();
     view = new Game1View();
+    QObject::connect(view->levelsScreen->btnSave,SIGNAL(clicked(bool)),this,SLOT(saveGame()));
     view->show();
+}
+
+void Game1Controller::saveGame()
+{
+    Game1Info info = view->save();
+    qDebug() << info.toString();
 }

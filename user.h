@@ -23,6 +23,7 @@ public:
     QString getLastName();
     QString getDOB();
     QString getUsername();
+    QString getGame1Info();
     bool isDOB();
 
 //private:
@@ -39,6 +40,7 @@ public:
     void setUsername(QString username);
     void setDOB(QString dob);
     void setGender(QString gender);
+    void setGame1Info(QString info);
 };
 
 #endif // USER_H

@@ -4,6 +4,7 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QDebug>
+#include <QtWidgets>
 
 #include <stagemarker.h>
 #include <game1time.h>
@@ -20,6 +21,7 @@ public:
     void keyPressEvent(QKeyEvent *event);
     void setMarkers(int i);
     int getCurrent();
+    QPushButton *btnSave;
 
 
 signals:

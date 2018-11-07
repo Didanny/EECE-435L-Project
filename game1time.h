@@ -14,6 +14,8 @@ public:
     static Game1Time* getInstance();
     void setMinutes(int minutes);
     void setSeconds(int seconds);
+    int getMinutes();
+    int getSeconds();
     void start();
     QTimer *timer;
 

@@ -32,6 +32,7 @@ public:
     int *scores;
     int currentLevel;
     void resume(Game1Info& info);
+    Game1Info save();
 
 signals:
 

@@ -23,3 +23,18 @@ void Game1Info::setLevelScores(int *scores)
         levelScores[i] = scores[i];
     }
 }
+
+QString Game1Info::getScoresAsString()
+{
+    QString s = QString();
+    for (int i = 0; i < 8; i++)
+    {
+        s += "," + QString::number(levelScores[i]);
+    }
+    return s;
+}
+
+QString Game1Info::toString()
+{
+   return QString::number(timeMinutes) + "," + QString::number(timeSeconds) + getScoresAsString();
+}

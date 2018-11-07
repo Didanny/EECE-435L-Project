@@ -60,6 +60,15 @@ void Game1View::resume(Game1Info &info)
     levelsScreen->setMarkers(currentLevel);
 }
 
+Game1Info Game1View::save()
+{
+    Game1Info info;
+    info.setMinutes(Game1Time::getInstance()->getMinutes());
+    info.setSeconds(Game1Time::getInstance()->getSeconds());
+    info.setLevelScores(scores);
+    return info;
+}
+
 void Game1View::nextLevel()
 {
     currentLevel = (currentLevel + 1) % 8;

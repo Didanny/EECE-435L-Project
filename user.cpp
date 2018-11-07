@@ -118,3 +118,8 @@ void User::setGender(QString gender)
 {
     _gender = gender;
 }
+
+void User::setGame1Info(QString info)
+{
+    _game1info = info;
+}

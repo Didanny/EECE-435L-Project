@@ -19,6 +19,7 @@ signals:
 public slots:
     void resumeGame();
     void newGame();
+    void saveGame();
 };
 
 #endif // GAME1CONTROLLER_H

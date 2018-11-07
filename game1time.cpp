@@ -36,6 +36,16 @@ void Game1Time::setSeconds(int seconds)
     _seconds = seconds;
 }
 
+int Game1Time::getMinutes()
+{
+    return _minutes;
+}
+
+int Game1Time::getSeconds()
+{
+    return _seconds;
+}
+
 void Game1Time::start()
 {
     timer->start(1000);
