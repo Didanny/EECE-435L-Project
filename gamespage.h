@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QtWidgets>
 
+#include <game1controller.h>
+
 class GamesPage : public QWidget
 {
     Q_OBJECT
@@ -13,10 +15,12 @@ public:
     QPushButton *btnGame2;
     QPushButton *btnGame3;
     QVBoxLayout *loStack;
+    Game1Controller *game1;
 
 signals:
 
 public slots:
+    void openGame1();
 };
 
 #endif // GAMESPAGE_H

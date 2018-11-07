@@ -5,6 +5,20 @@ Game1Info::Game1Info()
 
 }
 
+Game1Info::Game1Info(QString info)
+{
+    QStringList list = info.split(',');
+    setMinutes(list.at(0).toInt());
+    setSeconds(list.at(1).toInt());
+
+    levelScores = new int[8];
+
+    for (int i = 2; i < 10; i++)
+    {
+        levelScores[i - 2] = list.at(i).toInt();
+    }
+}
+
 void Game1Info::setSeconds(int sec)
 {
     timeSeconds = sec;

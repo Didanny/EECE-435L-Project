@@ -19,14 +19,14 @@ int main(int argc, char** argv)
 {
     QApplication app(argc,argv);
 
-//    GameController *gameController = new GameController();
+    GameController *gameController = new GameController();
 //    gameController->loadUser("b2");
 
 //    Game1Scene *scene = new Game1Scene();
 
 //    Game1View *view = new Game1View();
 
-    Game1Controller *controller = new Game1Controller();
+//    Game1Controller *controller = new Game1Controller();
 
 
 

@@ -1,4 +1,4 @@
-#include "gamespage.h"
+#include <gamespage.h>
 
 GamesPage::GamesPage(QWidget *parent) : QWidget(parent)
 {
@@ -12,4 +12,11 @@ GamesPage::GamesPage(QWidget *parent) : QWidget(parent)
     loStack->addWidget(btnGame3);
 
     this->setLayout(loStack);
+
+    QObject::connect(btnGame1,SIGNAL(clicked(bool)),this,SLOT(openGame1()));
+}
+
+void GamesPage::openGame1()
+{
+    game1 = new Game1Controller();
 }

@@ -41,7 +41,7 @@ Game1View::Game1View()
 
     QObject::connect(levelsScreen,SIGNAL(enterLevel()),this,SLOT(openLevel()));
 
-    for (int i = 0; i < 8; i++)
+    for (int i = 0; i < 7; i++)
     {
         QObject::connect(levels[i],SIGNAL(win()),this,SLOT(levelWon()));
     }
@@ -58,6 +58,16 @@ void Game1View::resume(Game1Info &info)
     }
     currentLevel++;
     levelsScreen->setMarkers(currentLevel);
+}
+
+int Game1View::getScore()
+{
+    int score = 0;
+    for (int i = 0; i < 8; i++)
+    {
+        score += scores[i];
+    }
+    return score;
 }
 
 Game1Info Game1View::save()
@@ -87,6 +97,7 @@ void Game1View::openLevel()
 
 void Game1View::levelWon()
 {
+    scores[currentLevel] = levels[currentLevel]->getScore();
     currentLevel++;
     levelsScreen->setMarkers(currentLevel);
     this->setScene(levelsScreen);

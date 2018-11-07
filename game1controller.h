@@ -5,6 +5,8 @@
 
 #include <gamesartmenu.h>
 #include <game1view.h>
+#include <userservice.h>
+#include <leaderboardservice.h>
 
 class Game1Controller : public QObject
 {
@@ -13,6 +15,8 @@ public:
     explicit Game1Controller(QObject *parent = nullptr);
     GameStartMenu *menu;
     Game1View *view;
+    UserService *userService;
+    LeaderBoardService *leaderboardService;
 
 signals:
 
@@ -20,6 +24,7 @@ public slots:
     void resumeGame();
     void newGame();
     void saveGame();
+    void finishGame();
 };
 
 #endif // GAME1CONTROLLER_H

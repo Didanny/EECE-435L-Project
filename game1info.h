@@ -2,11 +2,13 @@
 #define GAME1INFO_H
 
 #include <QString>
+#include <QStringList>
 
 class Game1Info
 {
 public:
     Game1Info();
+    Game1Info(QString info);
     int timeSeconds;
     int timeMinutes;
     int *levelScores;

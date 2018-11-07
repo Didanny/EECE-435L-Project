@@ -31,7 +31,8 @@ SOURCES += \
     level7.cpp \
     gamesartmenu.cpp \
     game1controller.cpp \
-    game1info.cpp
+    game1info.cpp \
+    leaderboardservice.cpp
 
 HEADERS += \
     loginform.h \
@@ -66,7 +67,8 @@ HEADERS += \
     level7.h \
     gamesartmenu.h \
     game1controller.h \
-    game1info.h
+    game1info.h \
+    leaderboardservice.h
 
 RESOURCES += \
     images.qrc
