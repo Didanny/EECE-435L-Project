@@ -8,6 +8,8 @@
 #include <serializable.h>
 #include <QDate>
 
+#include <game1info.h>
+
 class User : public Serializable
 {
 public:
@@ -22,7 +24,6 @@ public:
     QString getDOB();
     QString getUsername();
     bool isDOB();
-    void setGame1Checkpoint(int checkpoint);
 
 //private:
     QString _firstName;
@@ -31,7 +32,7 @@ public:
     QString _username;
     QString _dob;
     QString _gender;
-    int _game1Checkpoint;
+    QString _game1info;
     void setFirstName(QString firstName);
     void setLastName(QString lastName);
     void setPassword(QString password);
