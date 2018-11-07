@@ -3,6 +3,8 @@
 
 #include <QGraphicsView>
 #include <QObject>
+
+#include <game1info.h>
 #include <game1scene.h>
 #include <level1.h>
 #include <level2.h>
@@ -27,7 +29,9 @@ public:
     Level7 *level7;
     Level1 *level8;
     LevelScene **levels;
+    int *scores;
     int currentLevel;
+    void resume(Game1Info& info);
 
 signals:
 

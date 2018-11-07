@@ -27,6 +27,12 @@ Game1View::Game1View()
     levels[6] = level7;
     levels[7] = level8;
 
+    scores = new int[8];
+    for (int i = 0; i < 8; i++)
+    {
+        scores[i] = 0;
+    }
+
     currentLevel = 0;
 
     this->setScene(levelsScreen);
@@ -39,6 +45,19 @@ Game1View::Game1View()
     {
         QObject::connect(levels[i],SIGNAL(win()),this,SLOT(levelWon()));
     }
+}
+
+void Game1View::resume(Game1Info &info)
+{
+    Game1Time::getInstance()->setMinutes(info.timeMinutes);
+    Game1Time::getInstance()->setSeconds(info.timeSeconds);
+    for (int i = 0; i < 8; i++)
+    {
+        scores[i] = info.levelScores[i];
+        if (scores[i] !=0 ) currentLevel++;
+    }
+    currentLevel++;
+    levelsScreen->setMarkers(currentLevel);
 }
 
 void Game1View::nextLevel()
