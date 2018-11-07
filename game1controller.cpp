@@ -40,6 +40,11 @@ void Game1Controller::resumeGame()
     //TEST CODE END
     User user;
     userService->getCurrentUser(user);
+    if (user.getGame1Info().length() < 2)
+    {
+        // DISPLAY SOME ERROR
+        return;
+    }
     Game1Info info(user.getGame1Info());
     view->resume(info);
     view->show();

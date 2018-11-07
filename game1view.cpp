@@ -56,7 +56,7 @@ void Game1View::resume(Game1Info &info)
         scores[i] = info.levelScores[i];
         if (scores[i] !=0 ) currentLevel++;
     }
-    currentLevel++;
+//    currentLevel++;
     levelsScreen->setMarkers(currentLevel);
 }
 
