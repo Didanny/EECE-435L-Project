@@ -55,6 +55,7 @@ void LevelScene::execute()
     {
         // WIN
         win();
+        _retries++;
     }
     _retries--;
     retries->decrease();
