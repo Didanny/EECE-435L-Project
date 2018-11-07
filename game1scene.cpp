@@ -97,6 +97,7 @@ void Game1Scene::setMarkers(int i)
         markers[j]->setStageState("done");
     }
     markers[i]->setStageState("current");
+    currentMarker = i;
 }
 
 int Game1Scene::getCurrent()
