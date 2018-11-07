@@ -11,6 +11,9 @@ Game1Controller::Game1Controller(QObject *parent) : QObject(parent)
 
 void Game1Controller::resumeGame()
 {
+    menu->close();
+    view = new Game1View();
+//    view->resume();
 
 }
 
