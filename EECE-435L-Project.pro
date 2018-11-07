@@ -28,7 +28,8 @@ SOURCES += \
     level5.cpp \
     level6.cpp \
     retries.cpp \
-    level7.cpp
+    level7.cpp \
+    gamesartmenu.cpp
 
 HEADERS += \
     loginform.h \
@@ -60,7 +61,8 @@ HEADERS += \
     level5.h \
     level6.h \
     retries.h \
-    level7.h
+    level7.h \
+    gamesartmenu.h
 
 RESOURCES += \
     images.qrc
