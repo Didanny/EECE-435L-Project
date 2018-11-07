@@ -22,5 +22,6 @@
         <file>images/grass.png</file>
         <file>images/island.png</file>
         <file>images/ocean.png</file>
+        <file>images/dead.png</file>
     </qresource>
 </RCC>

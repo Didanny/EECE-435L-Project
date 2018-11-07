@@ -8,6 +8,8 @@
 #include <direction.h>
 #include <utility.h>
 #include <gold.h>
+#include <water.h>
+#include <safesurface.h>
 
 class Hero : public QObject, public QGraphicsPixmapItem
 {
@@ -18,7 +20,7 @@ public:
     void move(int x);
     void turn(int a);
     void reset();
-    void checkCollisions();
+    void checkCollisions(bool passenger = false);
     int getGold();
 
 private:

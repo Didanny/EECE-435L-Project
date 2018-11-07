@@ -86,9 +86,12 @@ void Hero::reset()
     _gold = 0;
 }
 
-void Hero::checkCollisions()
+void Hero::checkCollisions(bool passenger)
 {
     QList<QGraphicsItem*> collidingObstacles = collidingItems();
+
+    bool safe = false;
+    bool danger = false;
 
     for (int i = 0; i < collidingObstacles.size(); i++)
     {
@@ -100,6 +103,20 @@ void Hero::checkCollisions()
 //            delete obstacle;
             _gold++;
         }
+        else if (typeid(*obstacle) == typeid(Water))
+        {
+            danger = true;
+        }
+        else if (typeid(*obstacle) == typeid(SafeSurface))
+        {
+            safe = true;
+        }
+    }
+
+    if (!safe && danger && !passenger)
+    {
+        _gold = -1000;
+        this->setPixmap((QPixmap(":/images/dead.png")).scaled(100,100));
     }
 }
 
