@@ -24,7 +24,8 @@ void LeaderBoardService::loadBoards()
     if (file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         QTextStream stream(&file);
-        while (!stream.atEnd()){
+        while (!stream.atEnd())
+        {
             line = stream.readLine();
             if (line.length() > 1)
             {
@@ -41,16 +42,16 @@ void LeaderBoardService::loadBoards()
 
     QFile file2("game1boardr.txt");
     line = QString();
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    if (file2.open(QIODevice::ReadOnly | QIODevice::Text))
     {
-        QTextStream stream(&file);
+        QTextStream stream(&file2);
         while (!stream.atEnd())
         {
             line = stream.readLine();
-            if (line.length() > 2)
+            if (true)
             {
                 QStringList list = line.split(',');
-                game1boardr[list.at(1).toInt()] = list.at(0);
+                game1boardr[list.at(0).toInt()] = list.at(1);
 
 //                qDebug() << game1boardf["dan"];
 //                qDebug() << game1boardr[12];
