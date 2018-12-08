@@ -17,6 +17,7 @@ private:
     static LeaderBoardService *_instance;
     LeaderBoardService();
     LeaderBoardForward game1boardf;
+    LeaderBoardForward game2boardf;
 
 public:
     ~LeaderBoardService();

@@ -8,6 +8,7 @@ Game3Controller::Game3Controller(QObject *parent) : QObject(parent)
     game->show();
 
     userService = UserService::getInstance();
+    leaderboardService = LeaderBoardService::getInstance();
 
     QObject::connect(game,SIGNAL(gameLost()),this,SLOT(gameOver()));
 }
@@ -21,6 +22,7 @@ void Game3Controller::gameOver()
         qDebug() << "SCORE:" << game->getScore();
         qDebug() << "SCORE:" << QString::number(game->getScore());
         user.setGame3Info(QString::number(game->getScore()));
+        leaderboardService->addEntry("game3",user.getUsername(),game->getScore());
     }
     user.saveUser();
 }

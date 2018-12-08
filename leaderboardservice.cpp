@@ -45,6 +45,22 @@ void LeaderBoardService::loadBoards()
     }
 //    qDebug() << line;
     file.close();
+
+    QFile file2("game2boardf.txt");
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
+        QTextStream stream2(&file2);
+        while (!stream2.atEnd())
+        {
+            line = stream2.readLine();
+            if (line.length() > 1)
+            {
+                QStringList list = line.split(',');
+                game2boardf[list.at(0)] = list.at(1).toInt();
+            }
+        }
+    }
+    file2.close();
 }
 
 QString LeaderBoardService::getGame1Board()
@@ -64,6 +80,11 @@ void LeaderBoardService::addEntry(QString game, QString username, int score)
     {
         game1boardf[username] = score;
     }
+
+    if (game == QString("game3"))
+    {
+        game2boardf[username] = score;
+    }
 }
 
 void LeaderBoardService::saveBoards()
@@ -76,4 +97,13 @@ void LeaderBoardService::saveBoards()
         stream1 << usr + "," + QString::number(game1boardf.value(usr)) + "\n";
     }
     file1.close();
+
+    QFile file2("game2boardf.txt");
+    file2.open(QIODevice::WriteOnly);
+    QTextStream stream2(&file2);
+    for (QString usr : game2boardf.keys())
+    {
+        stream2 << usr + "," + QString::number(game2boardf.value(usr)) + "\n";
+    }
+    file2.close();
 }
