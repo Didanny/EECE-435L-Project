@@ -7,6 +7,7 @@
 #include <./Game3/game.h>
 #include <userservice.h>
 #include <leaderboardservice.h>
+#include <QDebug>
 
 //Game *game;
 
