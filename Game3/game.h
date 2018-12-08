@@ -20,6 +20,7 @@ public:
     Score *score;
     Health *health;
     void lose();
+    int getScore();
 
 signals:
     void gameLost();

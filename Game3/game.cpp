@@ -62,3 +62,8 @@ void Game::lose()
     gameLost();
 }
 
+int Game::getScore()
+{
+    return score->getScore();
+}
+

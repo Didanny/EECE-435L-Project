@@ -14,6 +14,7 @@ User::User(QString firstName, QString lastName, QString password, QString userna
     setDOB(dob);
     setGender(gender);
     _game1info = QString();
+    _game3info = QString("0");
 }
 
 void User::read(const QJsonObject &json)
@@ -25,6 +26,7 @@ void User::read(const QJsonObject &json)
     setDOB(json.find("dob").value().toString());
     setGender(json.find("gender").value().toString());
     _game1info = json.find("game1info").value().toString();
+    _game3info = json.find("game3info").value().toString();
 }
 
 void User::write(QJsonObject &json) const
@@ -36,6 +38,7 @@ void User::write(QJsonObject &json) const
     json.insert("dob",_dob);
     json.insert("gender",_gender);
     json.insert("game1info",_game1info);
+    json.insert("game3info",_game3info);
 }
 
 void User::saveUser()
@@ -82,6 +85,11 @@ QString User::getGame1Info()
     return _game1info;
 }
 
+QString User::getGame3Info()
+{
+    return _game3info;
+}
+
 bool User::isDOB()
 {
     QDate today;
@@ -122,4 +130,9 @@ void User::setGender(QString gender)
 void User::setGame1Info(QString info)
 {
     _game1info = info;
+}
+
+void User::setGame3Info(QString info)
+{
+    _game3info = info;
 }
