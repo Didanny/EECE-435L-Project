@@ -36,7 +36,7 @@ void Enemy::move()
         game->health->decrease();
         if (game->health->getHealth() == 0)
         {
-            game->gameOver();
+            game->lose();
             return;
         }
 

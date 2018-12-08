@@ -11,6 +11,7 @@
 
 class Game: public QGraphicsView
 {
+    Q_OBJECT
 public:
     Game();
     QTimer *timer;
@@ -18,8 +19,12 @@ public:
     QGraphicsScene *scene;
     Score *score;
     Health *health;
-    void gameOver();
+    void lose();
 
+signals:
+    void gameLost();
+
+public slots:
 
 };
 

@@ -47,7 +47,7 @@ Game::Game()
 
 }
 
-void Game::gameOver()
+void Game::lose()
 {
     scene->clear();
     QGraphicsTextItem *gameOver = new QGraphicsTextItem();
@@ -59,6 +59,6 @@ void Game::gameOver()
     int yPos = this->height()/2 - gameOver->boundingRect().height()/2;
     gameOver->setPos(xPos, yPos);
     scene->addItem(gameOver);
-
+    gameLost();
 }
 
