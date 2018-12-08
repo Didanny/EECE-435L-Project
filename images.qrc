@@ -23,5 +23,9 @@
         <file>images/island.png</file>
         <file>images/ocean.png</file>
         <file>images/dead.png</file>
+        <file>images/background.png</file>
+        <file>images/bullet.png</file>
+        <file>images/enemy.png</file>
+        <file>images/player.png</file>
     </qresource>
 </RCC>

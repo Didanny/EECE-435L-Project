@@ -32,7 +32,15 @@ SOURCES += \
     gamesartmenu.cpp \
     game1controller.cpp \
     game1info.cpp \
-    leaderboardservice.cpp
+    leaderboardservice.cpp \
+    Game3/bullet.cpp \
+    Game3/enemy.cpp \
+    Game3/game.cpp \
+    Game3/health.cpp \
+    Game3/player.cpp \
+    Game3/score.cpp \
+    game3controller.cpp \
+    game2controller.cpp \
 
 HEADERS += \
     loginform.h \
@@ -68,7 +76,15 @@ HEADERS += \
     gamesartmenu.h \
     game1controller.h \
     game1info.h \
-    leaderboardservice.h
+    leaderboardservice.h \
+    Game3/bullet.h \
+    Game3/enemy.h \
+    Game3/game.h \
+    Game3/health.h \
+    Game3/player.h \
+    Game3/score.h \
+    game3controller.h \
+    game2controller.h \
 
 RESOURCES += \
     images.qrc
