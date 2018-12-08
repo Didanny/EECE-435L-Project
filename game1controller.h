@@ -17,6 +17,8 @@ public:
     Game1View *view;
     UserService *userService;
     LeaderBoardService *leaderboardService;
+    Game1Time *game1time;
+    QMessageBox *message;
 
 signals:
 
@@ -25,6 +27,7 @@ public slots:
     void newGame();
     void saveGame();
     void finishGame();
+    void gameOver();
 };
 
 #endif // GAME1CONTROLLER_H

@@ -33,28 +33,28 @@ void Boat::move(int x)
             this->setPos(this->x() + step, this->y());
             if (_passenger != nullptr){
                 _passenger->setPos(this->x() + step, this->y());
-                _passenger->checkCollisions();
+                _passenger->checkCollisions(true);
             }
             break;
         case UP:
             this->setPos(this->x(), this->y() - step);
             if (_passenger != nullptr){
                 _passenger->setPos(this->x() + step, this->y());
-                _passenger->checkCollisions();
+                _passenger->checkCollisions(true);
             }
             break;
         case LEFT:
             this->setPos(this->x() - step, this->y());
             if (_passenger != nullptr){
                 _passenger->setPos(this->x() + step, this->y());
-                _passenger->checkCollisions();
+                _passenger->checkCollisions(true);
             }
             break;
         case DOWN:
             this->setPos(this->x(), this->y() + step);
             if (_passenger != nullptr){
                 _passenger->setPos(this->x() + step, this->y());
-                _passenger->checkCollisions();
+                _passenger->checkCollisions(true);
             }
             break;
         default:

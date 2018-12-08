@@ -36,12 +36,16 @@ public:
     Game1Info save();
 
 signals:
+    void gameWon();
+    void gameOver();
 
 public slots:
     void nextLevel();
     void previousLevel();
     void openLevel();
     void levelWon();
+    void finalLevelWon();
+    void lose();
 };
 
 #endif // GAME1VIEW_H

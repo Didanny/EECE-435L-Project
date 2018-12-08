@@ -2,13 +2,14 @@
 
 Game1Controller::Game1Controller(QObject *parent) : QObject(parent)
 {
+    message = new QMessageBox();
     menu = new GameStartMenu();
 
     menu->show();
 
     userService = UserService::getInstance();
     leaderboardService = LeaderBoardService::getInstance();
-    leaderboardService->loadBoards();
+//    leaderboardService->loadBoards();
     leaderboardService->getGame1Board();
 
     QObject::connect(menu->btnNewGame,SIGNAL(clicked(bool)),this,SLOT(newGame()));
@@ -49,7 +50,12 @@ void Game1Controller::resumeGame()
     view->resume(info);
     view->show();
 
-//    view->resume();
+    QObject::connect(view->levels[7],SIGNAL(win()),this,SLOT(finishGame()));
+    QObject::connect(view,SIGNAL(gameOver()),this,SLOT(gameOver()));
+    //    view->resume();
+
+    game1time = Game1Time::getInstance();
+    QObject::connect(game1time,SIGNAL(gameOver()),this,SLOT(gameOver()));
 
 }
 
@@ -58,7 +64,7 @@ void Game1Controller::newGame()
     menu->close();
     view = new Game1View();
     QObject::connect(view->levelsScreen->btnSave,SIGNAL(clicked(bool)),this,SLOT(saveGame()));
-    QObject::connect(view->level8,SIGNAL(win()),this,SLOT(finishGame()));
+    QObject::connect(view,SIGNAL(gameWon()),this,SLOT(finishGame()));
     view->show();
 }
 
@@ -77,5 +83,26 @@ void Game1Controller::finishGame()
 {
     User user;
     userService->getCurrentUser(user);
+    user.setGame1Info(QString());
+    user.saveUser();
     leaderboardService->addEntry("game1",user.getUsername(),view->getScore());
+    qDebug() << "FINISH";
+    leaderboardService->saveBoards();
+    view->close();
+
+//    view->scene()->clear();
+//    QGraphicsTextItem *text = view->scene()->addText("CONGRATULATIONS YOU WON");
+//    text->setPos(100,100);
+}
+
+void Game1Controller::gameOver()
+{
+    User user;
+    userService->getCurrentUser(user);
+    user.setGame1Info(QString());
+    user.saveUser();
+    view->close();
+
+//    QGraphicsTextItem *text = view->scene()->addText("GAME OVER");
+//    text->setPos(100,100);
 }

@@ -13,6 +13,10 @@ Level1::Level1()
     this->addItem(gold);
 
     setRequiredGold(1);
+
+    QString f;
+    f += "hero.move(# steps)";
+    functions->setText(f);
 }
 
 void Level1::resetLevel()

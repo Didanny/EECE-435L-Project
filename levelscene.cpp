@@ -24,7 +24,7 @@ LevelScene::LevelScene()
 
 
     functions = new QTextEdit();
-    functions->resize(200,200);
+    functions->resize(200,400);
     functions->move(this->width() - functions->width() - 10, 20 + code->height() + run->height());
     proxyWidget = this->addWidget(functions);
     proxyWidget->setZValue(1000);
@@ -62,6 +62,7 @@ void LevelScene::execute()
     if (_retries == 0)
     {
         // GAME OVER
+        lose();
     }
     resetLevel();
 }

@@ -59,7 +59,7 @@ void Game1Time::countdown()
     {
         if (_minutes == 0)
         {
-            // GAME OVER
+            getInstance()->gameOver();
         }
         _minutes--;
         _seconds = 59;

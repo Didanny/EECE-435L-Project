@@ -44,6 +44,16 @@ Level7::Level7()
     this->addItem(gold[2]);
 
     setRequiredGold(3);
+
+    QString f;
+    f += "hero.move(# steps)\n";
+    f += "hero.turn(angle)\n";
+    f += "boat.move(# steps)\n";
+    f += "boat.turn(angle)\n\n";
+    f += "repeat(#)\n";
+    f += "   // INSERT CODE HERE\n";
+    f += "end\n";
+    functions->setText(f);
 }
 
 void Level7::resetLevel()

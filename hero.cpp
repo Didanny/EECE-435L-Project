@@ -113,11 +113,11 @@ void Hero::checkCollisions(bool passenger)
         }
     }
 
-    if (!safe && danger && !passenger)
-    {
-        _gold = -1000;
-        this->setPixmap((QPixmap(":/images/dead.png")).scaled(100,100));
-    }
+//    if (!safe && danger && !passenger)
+//    {
+//        _gold = -1000;
+//        this->setPixmap((QPixmap(":/images/dead.png")).scaled(100,100));
+//    }
 }
 
 int Hero::getGold()

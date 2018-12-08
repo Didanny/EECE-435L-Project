@@ -44,7 +44,10 @@ Game1View::Game1View()
     for (int i = 0; i < 7; i++)
     {
         QObject::connect(levels[i],SIGNAL(win()),this,SLOT(levelWon()));
+        QObject::connect(levels[i],SIGNAL(lose()),this,SLOT(lose()));
     }
+    QObject::connect(levels[7],SIGNAL(win()),this,SLOT(finalLevelWon()));
+    QObject::connect(levels[7],SIGNAL(lose()),this,SLOT(lose()));
 }
 
 void Game1View::resume(Game1Info &info)
@@ -102,5 +105,20 @@ void Game1View::levelWon()
     levelsScreen->setMarkers(currentLevel);
     this->setScene(levelsScreen);
     levelsScreen->addItem(Game1Time::getInstance());
+}
+
+void Game1View::finalLevelWon()
+{
+    scores[currentLevel] = levels[currentLevel]->getScore();
+    this->setScene(levelsScreen);
+    levelsScreen->addItem(Game1Time::getInstance());
+    gameWon();
+}
+
+void Game1View::lose()
+{
+//    this->setScene(levelsScreen);
+//    levelsScreen->addItem(Game1Time::getInstance());
+    gameOver();
 }
 

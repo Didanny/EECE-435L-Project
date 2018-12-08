@@ -1,5 +1,4 @@
-#ifndef BOAT_H
-#define BOAT_H
+#pragma once
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
@@ -8,6 +7,7 @@
 #include <direction.h>
 #include <utility.h>
 #include <hero.h>
+#include <safesurface.h>
 
 class Boat : public QObject, public QGraphicsPixmapItem
 {
@@ -29,4 +29,4 @@ signals:
 public slots:
 };
 
-#endif // BOAT_H
+

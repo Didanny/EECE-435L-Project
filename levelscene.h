@@ -39,6 +39,7 @@ private:
 
 signals:
     void win();
+    void lose();
 
 public slots:
     void execute();

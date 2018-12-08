@@ -17,13 +17,14 @@ private:
     static LeaderBoardService *_instance;
     LeaderBoardService();
     LeaderBoardForward game1boardf;
-    LeaderBoardReverse game1boardr;
 
 public:
+    ~LeaderBoardService();
     static LeaderBoardService* getInstance();
     void loadBoards();
     QString getGame1Board();
     void addEntry(QString game, QString username, int score);
+    void saveBoards();
 };
 
 #endif // LEADERBOARDSERVICE_H

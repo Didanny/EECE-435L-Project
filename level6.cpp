@@ -33,6 +33,14 @@ Level6::Level6()
     this->addItem(gold[2]);
 
     setRequiredGold(3);
+
+    QString f;
+    f += "hero.move(# steps)\n";
+    f += "hero.turn(angle)\n\n";
+    f += "repeat(#)\n";
+    f += "   // INSERT CODE HERE\n";
+    f += "end\n";
+    functions->setText(f);
 }
 
 void Level6::resetLevel()

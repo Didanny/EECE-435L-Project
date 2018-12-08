@@ -18,5 +18,6 @@ GamesPage::GamesPage(QWidget *parent) : QWidget(parent)
 
 void GamesPage::openGame1()
 {
+//    this->hide();
     game1 = new Game1Controller();
 }

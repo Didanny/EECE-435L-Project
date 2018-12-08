@@ -25,6 +25,9 @@ private:
     static int _seconds;
     static Game1Time *_instance;
 
+signals:
+    void gameOver();
+
 public slots:
     static void countdown();
 };

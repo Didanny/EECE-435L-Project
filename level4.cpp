@@ -28,6 +28,15 @@ Level4::Level4()
     this->addItem(gold[1]);
 
     setRequiredGold(2);
+
+    QString f;
+    f += "hero.move(# steps)\n";
+    f += "hero.turn(angle)\n";
+    f += "boat.move(# steps)\n";
+    f += "boat.turn(angle)\n";
+    f += "\n";
+    f += "angle can only be a multiple of 90, positive angle rotates counter-clockwise, negtive rotates clockwise";
+    functions->setText(f);
 }
 
 void Level4::resetLevel()

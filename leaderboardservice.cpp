@@ -7,11 +7,17 @@ LeaderBoardService::LeaderBoardService()
 
 }
 
+LeaderBoardService::~LeaderBoardService()
+{
+
+}
+
 LeaderBoardService *LeaderBoardService::getInstance()
 {
     if (_instance == nullptr)
     {
         _instance = new LeaderBoardService();
+        _instance->loadBoards();
     }
     return _instance;
 }
@@ -39,36 +45,16 @@ void LeaderBoardService::loadBoards()
     }
 //    qDebug() << line;
     file.close();
-
-    QFile file2("game1boardr.txt");
-    line = QString();
-    if (file2.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
-        QTextStream stream(&file2);
-        while (!stream.atEnd())
-        {
-            line = stream.readLine();
-            if (true)
-            {
-                QStringList list = line.split(',');
-                game1boardr[list.at(0).toInt()] = list.at(1);
-
-//                qDebug() << game1boardf["dan"];
-//                qDebug() << game1boardr[12];
-            }
-        }
-    }
-    file2.close();
 }
 
 QString LeaderBoardService::getGame1Board()
 {
     QString board;
-    for (int score : game1boardr.keys())
-    {
-        board += score + " : " + game1boardr.value(score);
-        qDebug() << score << " : " << game1boardr.value(score);
-    }
+//    for (int score : game1boardr.keys())
+//    {
+//        board += score + " : " + game1boardr.value(score);
+//        qDebug() << score << " : " << game1boardr.value(score);
+//    }
     return board;
 }
 
@@ -77,6 +63,17 @@ void LeaderBoardService::addEntry(QString game, QString username, int score)
     if (game == QString("game1"))
     {
         game1boardf[username] = score;
-        game1boardr[score] = username;
     }
+}
+
+void LeaderBoardService::saveBoards()
+{
+    QFile file1("game1boardf.txt");
+    file1.open(QIODevice::WriteOnly);
+    QTextStream stream1(&file1);
+    for (QString usr : game1boardf.keys())
+    {
+        stream1 << usr + "," + QString::number(game1boardf.value(usr)) + "\n";
+    }
+    file1.close();
 }
